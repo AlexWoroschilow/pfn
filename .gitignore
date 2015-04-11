@@ -5,3 +5,5 @@
 Debug/*
 *.config
 *.settings
+*.cproject
+*.project
