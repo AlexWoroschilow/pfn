@@ -2,7 +2,7 @@
 *.mk
 *.x
 *.o
-*/Debug/*
+*Debug/*
 *.config
 *.settings
 *.cproject
