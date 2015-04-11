@@ -18,6 +18,9 @@ int main(void) {
   // Eine Möglichkeit wäre dann
   // diese Werte einfach berechnen wie hier
   long maxui = (unsigned int) (-1);
+  /* DW:
+     Sie versuchen hier den maximalwert für unsigned long in einem long zu
+     Speichern - wo ist da der Denkfehler? */
   long maxul = (unsigned long) (-1);
   long minsi = -(maxui / 2 + 1);
   long maxsi = (maxui / 2);
@@ -38,13 +41,15 @@ int main(void) {
   fprintf(stdout, "Unsigned long \tmin: %d, max:%ld, Bytes:%lu\n", 0, maxul,
       sizeof(long));
 
-  fprintf(stdout, "Signed char \tmin: %d, max:%ld, Bytes:%lu\n",
+  /* DW:
+     Falsche Format-strings verwendet. */
+  fprintf(stdout, "Signed char \tmin: %d, max:%d, Bytes:%lu\n",
   CHAR_MIN, CHAR_MAX, sizeof(char));
 
-  fprintf(stdout, "Signed short \tmin: %d, max:%ld, Bytes:%lu\n",
+  fprintf(stdout, "Signed short \tmin: %d, max:%"/*l*/"d, Bytes:%lu\n",
   SHRT_MIN, SHRT_MAX, sizeof(short));
 
-  fprintf(stdout, "Signed int \tmin: %d, max:%ld, Bytes:%ld\n", minsi, maxsi,
+  fprintf(stdout, "Signed int \tmin: %ld, max:%ld, Bytes:%ld\n", minsi, maxsi,
       sizeof(int));
 
   fprintf(stdout, "Signed long \tmin: %ld, max:%ld, Bytes:%lu\n", minsl, maxsl,

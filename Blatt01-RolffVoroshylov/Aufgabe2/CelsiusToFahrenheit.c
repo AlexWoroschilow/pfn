@@ -18,6 +18,8 @@ int main(int argc, char **argv) {
   float temperatur;
 
   if (argc == 2) {
+    /* DW:
+       nicht ganz schön. sscanf(...) == 1 ist besser */
     if (sscanf(argv[1], "%f", &temperatur)) {
       if (IN_RANGE(0.0, temperatur, 100.0)) {
         fprintf(stdout, "Fahrenheit: %3.1f in Celsius: %3.1f\n",

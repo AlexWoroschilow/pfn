@@ -1,0 +1,11 @@
+* 1.2
+
+  @ 2 Punkte
+
+  # Die Fehlermeldung ist wieder falsch
+  # ein paar Anmerkungen im Code
+
+  # Sie haben die Aufgabe falsch verstanden. Sie sollten ALLE Zahlen von 0 bis
+    100 in Fahrenheit umrechnen. Warum sollte ich ein Programm, das beliebige
+    Zahlen in Fahrenheit umrechnet auf 0-100 °C beschränken? -22°C kann man
+    genau so gut in °F umrechnen wie 432°C!
