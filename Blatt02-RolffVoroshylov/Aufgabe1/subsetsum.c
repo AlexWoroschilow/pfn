@@ -13,87 +13,91 @@
 #include <memory.h>
 #include <stdio.h>
 
+/*
+ * Check conditions and return
+ * a message if fail
+ */
+#define assertf(condition, message) \
+  if(!(condition)) \
+  { \
+    fprintf(stderr, message); \
+    exit(EXIT_FAILURE); \
+  }
+
+/**
+ * Allocate a memory and display
+ * a message if not success
+ */
+#define mallocf(pointer, size, message)\
+  assertf((pointer = malloc(size)) != NULL, message);\
+
+
 bool subsetsum(unsigned long k,
-               bool* mark,
-               const unsigned long* arr,
-               unsigned long n)
-{
+bool* mark, const unsigned long* arr, unsigned long n) {
+
   unsigned long i = 0;
   unsigned long sum = 0;
   bool ret = false;
 
   /*
-  Summe berechnen in dem nur elemente addiert werden,
-  welche auch makiert wurden.
-  */
-  for(i = 0; i < n; ++i)
-  {
-    if(mark[i])
-    {
+   Summe berechnen in dem nur elemente addiert werden,
+   welche auch makiert wurden.
+   */
+  for (i = 0; i < n; ++i) {
+    if (mark[i]) {
       sum += arr[i];
     }
   }
 
   /*
-  wenn die summe noch kleiner ist, dann die werte von
-  dynamic veraendern, welche die gleichen daten wie mark
-  enthalten und erneut die funktion aufrufen.
-  */
-  if(sum < k)
-  {
-    bool* dynamic = malloc(sizeof(*mark) * n);
+   wenn die summe noch kleiner ist, dann die werte von
+   dynamic veraendern, welche die gleichen daten wie mark
+   enthalten und erneut die funktion aufrufen.
+   */
+  if (sum < k) {
 
-    /*
-    if(!dynamic) ist das gleiche wie if(dynamic == NULL)
-    */
-    if(!dynamic)
-    {
-      fprintf(stderr, "Could not allocate enough memory (%lu Byte)"
-              "for a new mark pointer\n",
-              sizeof(*mark) * n);
-		}
+    bool* dynamic;
+    unsigned long dynamic_size = sizeof(*mark) * n;
 
-    for(i = 0; i < n; ++i)
-    {
+    mallocf(dynamic, dynamic_size,
+        "Could not allocate enough memory for a new mark pointer\n");
+
+    for (i = 0; i < n; ++i) {
       /*
-      speicher von dynamic zurueck setzen und
-      den i. eintrag veraendern.
-      */
-      memcpy(dynamic, mark, sizeof(*mark) * n);
+       speicher von dynamic zurueck setzen und
+       den i. eintrag veraendern.
+       */
+      memcpy(dynamic, mark, dynamic_size);
 
       /*
-      wenn der wert an n - i - 1 noch nicht true ist:
-      */
-      if(!dynamic[n - i - 1])
-      {
+       wenn der wert an n - i - 1 noch nicht true ist:
+       */
+      if (!dynamic[n - i - 1]) {
         /*
-        dann die werte modulieren und zwar mit den groeßten
-        werten anfangen.
-        Alternativ koennte man auch rueckwerts
-        iterieren.
-        */
+         dann die werte modulieren und zwar mit den groeï¿½ten
+         werten anfangen.
+         Alternativ koennte man auch rueckwerts
+         iterieren.
+         */
         dynamic[n - i - 1] = true;
-        if(subsetsum(k, dynamic, arr, n))
-        {
+        if (subsetsum(k, dynamic, arr, n)) {
           ret = true;
           /*
-          wenn eine loesung gefunden wurde,
-          dann die loesung an mark zurueck kopieren.
-          */
-          memcpy(mark, dynamic, sizeof(*mark) * n);
+           wenn eine loesung gefunden wurde,
+           dann die loesung an mark zurueck kopieren.
+           */
+          memcpy(mark, dynamic, dynamic_size);
 
           /*
-          aus der schleife springen.
-          */
+           aus der schleife springen.
+           */
           break;
         }
       }
     }
 
     free(dynamic);
-  }
-  else if(sum == k)
-  {
+  } else if (sum == k) {
     ret = true;
   }
 

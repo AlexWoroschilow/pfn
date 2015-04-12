@@ -14,10 +14,8 @@
 #include <assert.h>
 #include "queue.h"
 
-/*
- * Check conditions and return
- * a message if fail
- */
+/* Check conditions and return
+ a message if fail */
 #define assertf(condition, message) \
   if(!(condition)) \
   { \
@@ -25,31 +23,23 @@
     exit(EXIT_FAILURE); \
   }
 
-/**
- * Allocate a memory and display
- * a message if not success
- */
+/* Allocate a memory and display
+ a message if not success */
 #define mallocf(pointer, size, message)\
   assertf((pointer = malloc(size)) != NULL, message);\
 
-/**
- * Reallocate a memory and display
- * a message if not success
- */
+/* Reallocate a memory and display
+ a message if not success */
 #define reallocf(pointer, size, message)\
   assertf((pointer = realloc(pointer, size)) != NULL, message);\
 
-/**
- * Check is queue valid,
- */
+/* Check is queue valid */
 #define queue_validate(queue) \
   assertf(queue != NULL, "Queue size can not be 0");\
   assertf(queue->queuespace != NULL, "Queue size can not be 0");\
   assertf(queue->queuesize > 0, "Queue size can not be 0");\
 
-/**
- * Check that indexes are not equal
- */
+/* Check that indexes are not equal */
 #define queue_validate_indexes(queue) \
     assertf(queue->enqueueindex != queue->dequeueindex, "Enqueue index and dequeue index can not be equal");\
 
@@ -85,9 +75,9 @@ bool queue_is_empty(const Queue *q) {
 
 /* The following function resizes the queue by doubling the space reservoir  */
 void queue_double_size(Queue *q) {
-  // This is a public function, in case of
-  // external usage (not from queue_enqueue) needs
-  // to validate given queue
+  /* This is a public function, in case of
+   external usage (not from queue_enqueue) needs
+   to validate given queue */
   queue_validate(q);
 
   reallocf(q->queuespace, (q->queuesize * sizeof(Queueelement)) * 2,
@@ -101,8 +91,8 @@ void queue_enqueue(Queue *q, Queueelement elem) {
 
   queue_validate(q);
 
-// Check for start and end points intersection
-// increase queue size in this case
+  /* Check for start and end points intersection
+   increase queue size in this case */
   if (abs(q->enqueueindex - q->dequeueindex) == 1) {
     queue_double_size(q);
   }
@@ -116,12 +106,11 @@ void queue_enqueue(Queue *q, Queueelement elem) {
 
   q->no_of_elements += 1;
 
-  // check that indexes are not equal
+  /* check that indexes are not equal */
   queue_validate_indexes(q);
 }
 
-/* The following function removes the element elem from the start of the queue.
- */
+/* The following function removes the element elem from the start of the queue. */
 Queueelement queue_dequeue(Queue *q) {
 
   queue_validate(q);
@@ -135,7 +124,7 @@ Queueelement queue_dequeue(Queue *q) {
 
   q->no_of_elements -= 1;
 
-  // check that indexes are not equal
+  /* check that indexes are not equal */
   queue_validate_indexes(q);
 
   return e;
