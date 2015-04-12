@@ -4,7 +4,7 @@
  Author      : Tim Rollf, Oleksand Voroshylov
  Version     :
  Copyright   : 2015
- Description : Hello World in C, Ansi-style
+ Description : Queue with array loop
  ============================================================================
  */
 
@@ -147,11 +147,10 @@ void queue_print(const Queue *q) {
   queue_validate(q);
 
   unsigned long enqueueindex = q->enqueueindex;
-  unsigned long dequeueindex = q->dequeueindex;
 
   printf("queue=\n");
   if ((q->no_of_elements > 0)) {
-    while (dequeueindex != enqueueindex) {
+    while (q->dequeueindex != enqueueindex) {
 
       if (enqueueindex == 0) {
         enqueueindex = q->queuesize;
