@@ -99,12 +99,12 @@ void queue_enqueue(Queue *q, Queueelement elem) {
 
   q->queuespace[q->enqueueindex] = elem;
 
-  q->enqueueindex += 1;
+  q->enqueueindex++;
   if (q->enqueueindex == q->queuesize) {
     q->enqueueindex = 0;
   }
 
-  q->no_of_elements += 1;
+  q->no_of_elements++;
 
   /* check that indexes are not equal */
   queue_validate_indexes(q);
@@ -117,12 +117,12 @@ Queueelement queue_dequeue(Queue *q) {
 
   Queueelement e = q->queuespace[q->dequeueindex];
 
-  q->dequeueindex += 1;
+  q->dequeueindex++;
   if (q->dequeueindex == q->queuesize) {
     q->dequeueindex = 0;
   }
 
-  q->no_of_elements -= 1;
+  q->no_of_elements--;
 
   /* check that indexes are not equal */
   queue_validate_indexes(q);
@@ -135,6 +135,7 @@ void queue_print(const Queue *q) {
 
   queue_validate(q);
 
+  bool printed = false;
   unsigned long enqueueindex = q->enqueueindex;
 
   printf("queue=\n");
@@ -147,7 +148,12 @@ void queue_print(const Queue *q) {
 
       enqueueindex--;
 
-      printf("%3d ", q->queuespace[enqueueindex]);
+      printf((printed ? "  %d" : "%d"), q->queuespace[enqueueindex]);
+
+      if (!printed) {
+        printed = true;
+      }
+
     }
   }
 
