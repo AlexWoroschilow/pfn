@@ -16,7 +16,7 @@
 
 /* Check conditions and return
  a message if fail */
-#define assertf(condition, message) \
+#define assert_with_message(condition, message) \
   if(!(condition)) \
   { \
     fprintf(stderr, message); \
@@ -25,23 +25,23 @@
 
 /* Allocate a memory and display
  a message if not success */
-#define mallocf(pointer, size, message)\
-  assertf((pointer = malloc(size)) != NULL, message);\
+#define malloc_or_exit(pointer, size, message)\
+  assert_with_message((pointer = malloc(size)) != NULL, message);\
 
 /* Reallocate a memory and display
  a message if not success */
-#define reallocf(pointer, size, message)\
-  assertf((pointer = realloc(pointer, size)) != NULL, message);\
+#define realloc_or_exit(pointer, size, message)\
+  assert_with_message((pointer = realloc(pointer, size)) != NULL, message);\
 
 /* Check is queue valid */
 #define queue_validate(queue) \
-  assertf(queue != NULL, "Queue size can not be 0");\
-  assertf(queue->queuespace != NULL, "Queue size can not be 0");\
-  assertf(queue->queuesize > 0, "Queue size can not be 0");\
+  assert_with_message(queue != NULL, "Queue size can not be 0");\
+  assert_with_message(queue->queuespace != NULL, "Queue size can not be 0");\
+  assert_with_message(queue->queuesize > 0, "Queue size can not be 0");\
 
 /* Check that indexes are not equal */
 #define queue_validate_indexes(queue) \
-    assertf(queue->enqueueindex != queue->dequeueindex, "Enqueue index and dequeue index can not be equal");\
+    assert_with_message(queue->enqueueindex != queue->dequeueindex, "Enqueue index and dequeue index can not be equal");\
 
 
 /* The following function delivers an empty queue with a reservoir of
@@ -51,7 +51,7 @@ Queue *queue_new(unsigned long queuesize) {
 
   Queue *q = NULL;
 
-  mallocf(q, sizeof(Queue), "Can not allocate memory for queue");
+  malloc_or_exit(q, sizeof(Queue), "Can not allocate memory for queue");
 
   q->queuesize = queuesize;
   q->enqueueindex = 0UL;
@@ -59,7 +59,7 @@ Queue *queue_new(unsigned long queuesize) {
   q->no_of_elements = 0UL;
   q->queuespace = NULL;
 
-  mallocf(q->queuespace, queuesize * sizeof(Queueelement),
+  malloc_or_exit(q->queuespace, queuesize * sizeof(Queueelement),
       "Can not allocate memory for queue elements");
 
   return q;
@@ -80,7 +80,7 @@ void queue_double_size(Queue *q) {
    to validate given queue */
   queue_validate(q);
 
-  reallocf(q->queuespace, (q->queuesize * sizeof(Queueelement)) * 2,
+  realloc_or_exit(q->queuespace, (q->queuesize * sizeof(Queueelement)) * 2,
       "Can not reallocate memory for queue elements");
 
   q->queuesize *= 2;
@@ -133,10 +133,10 @@ Queueelement queue_dequeue(Queue *q) {
 /* print the contents of <*q> on screen */
 void queue_print(const Queue *q) {
 
-  queue_validate(q);
-
   bool printed = false;
   unsigned long enqueueindex = q->enqueueindex;
+
+  queue_validate(q);
 
   printf("queue=\n");
   if ((q->no_of_elements > 0)) {
