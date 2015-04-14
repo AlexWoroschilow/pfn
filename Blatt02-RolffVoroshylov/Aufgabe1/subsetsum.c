@@ -17,7 +17,7 @@
  * Check conditions and return
  * a message if fail
  */
-#define assertf(condition, message) \
+#define assert_with_message(condition, message) \
   if(!(condition)) \
   { \
     fprintf(stderr, message); \
@@ -28,8 +28,8 @@
  * Allocate a memory and display
  * a message if not success
  */
-#define mallocf(pointer, size, message)\
-  assertf((pointer = malloc(size)) != NULL, message);\
+#define malloc_or_exit(pointer, size, message)\
+  assert_with_message((pointer = malloc(size)) != NULL, message);\
 
 
 bool subsetsum(unsigned long k,
@@ -59,7 +59,7 @@ bool* mark, const unsigned long* arr, unsigned long n) {
     bool* dynamic;
     unsigned long dynamic_size = sizeof(*mark) * n;
 
-    mallocf(dynamic, dynamic_size,
+    malloc_or_exit(dynamic, dynamic_size,
         "Could not allocate enough memory for a new mark pointer\n");
 
     for (i = 0; i < n; ++i) {
