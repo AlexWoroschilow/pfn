@@ -1,5 +1,5 @@
 .PHONY: all
-CFLAGS=-Wall -Werror -g
+CFLAGS=-Wall -Werror -pedantic -g
 
 opt?=no
 ifeq (${opt}, yes)

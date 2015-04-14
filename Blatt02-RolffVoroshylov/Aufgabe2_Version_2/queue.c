@@ -9,6 +9,7 @@
  */
 
 #include <stdio.h>
+#include <memory.h>
 #include <stdlib.h>
 #include <stdbool.h>
 #include <assert.h>
@@ -75,13 +76,23 @@ bool queue_is_empty(const Queue *q) {
 
 /* The following function resizes the queue by doubling the space reservoir  */
 void queue_double_size(Queue *q) {
-  /* This is a public function, in case of
-   external usage (not from queue_enqueue) needs
-   to validate given queue */
+
+  size_t size = q->queuesize * sizeof(Queueelement);
+
   queue_validate(q);
 
-  realloc_or_exit(q->queuespace, (q->queuesize * sizeof(Queueelement)) * 2,
+  realloc_or_exit(q->queuespace, (size * 2),
       "Can not reallocate memory for queue elements");
+
+  if (q->dequeueindex > q->enqueueindex) {
+
+    Queueelement *to = q->queuespace + q->queuesize;
+    Queueelement *from = q->queuespace;
+
+    memcpy(to, from, size);
+
+    q->dequeueindex += q->queuesize;
+  }
 
   q->queuesize *= 2;
 }
@@ -91,31 +102,28 @@ void queue_enqueue(Queue *q, Queueelement elem) {
 
   queue_validate(q);
 
-  /* Check for start and end points intersection
-   increase queue size in this case */
-  if (abs(q->enqueueindex - q->dequeueindex) == 1) {
+  q->queuespace[q->enqueueindex] = elem;
+
+  q->no_of_elements++;
+
+  if (q->no_of_elements == q->queuesize) {
     queue_double_size(q);
   }
-
-  q->queuespace[q->enqueueindex] = elem;
 
   q->enqueueindex++;
   if (q->enqueueindex == q->queuesize) {
     q->enqueueindex = 0;
   }
 
-  q->no_of_elements++;
-
-  /* check that indexes are not equal */
   queue_validate_indexes(q);
 }
 
 /* The following function removes the element elem from the start of the queue. */
 Queueelement queue_dequeue(Queue *q) {
 
-  queue_validate(q);
-
   Queueelement e = q->queuespace[q->dequeueindex];
+
+  queue_validate(q);
 
   q->dequeueindex++;
   if (q->dequeueindex == q->queuesize) {
@@ -124,7 +132,6 @@ Queueelement queue_dequeue(Queue *q) {
 
   q->no_of_elements--;
 
-  /* check that indexes are not equal */
   queue_validate_indexes(q);
 
   return e;
