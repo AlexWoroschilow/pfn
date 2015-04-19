@@ -21,9 +21,9 @@ void print_usage(char* progname)
   printf("%s [Alphabet] [Number]\n", progname);
   printf("Alphabet: A string which represet the alphabet\n"
          "Number: The count of the outputed chars in the string "
-         "must be bigger than zero\n");
-  printf("\nBeispiel: %s ABC 2\n", progname);
-  printf("Erzeigt den output AA AB AC BA BB BC CA CB CC\n");
+         "(must be bigger than zero!)\n");
+  printf("\nExample: %s ABC 2\n", progname);
+  printf("Creates the output AA AB AC BA BB BC CA CB CC\n");
 }
 
 /*
@@ -111,7 +111,7 @@ void permutateAlphabet(const char* string,
   unsigned long i;
   unsigned long* array;
 
-  save_malloc(array, sizeof(array) * k);
+  save_malloc(array, sizeof(unsigned long) * k);
   for (i = 0; i < k; ++i) {
     array[i] = 0;
   }
