@@ -1,3 +1,14 @@
+/*
+ ============================================================================
+ Name        : int_conv.h
+
+ Author      : Tim Rollf, Oleksand Voroshylov
+ Version     :
+ Copyright   : 2015
+ Description : Memory manage task
+ ============================================================================
+*/
+
 /* converts a string to a number using strtol(). Hard exits the program if the
    string is no valid number. Assumes base 0, that is it should handle
    hexadecimal and octal values.

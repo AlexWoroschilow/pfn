@@ -1,3 +1,15 @@
+/*
+ ============================================================================
+ Name        : enumkmers.c
+
+ Author      : Tim Rollf, Oleksand Voroshylov
+ Version     :
+ Copyright   : 2015
+ Description : Memory manage task
+ ============================================================================
+*/
+
+
 #include <stdbool.h>
 #include <string.h>
 #include <stdio.h>

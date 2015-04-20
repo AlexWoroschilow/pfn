@@ -102,9 +102,30 @@ MMspacetable* mem_man_new(unsigned long numberofblocks) {
   return table;
 }
 
-/**
- * Get block from
- * table by pointer
+/*
+ Frees allocated blockspaces and there memory
+*/
+
+static void freeMemory(const MMspacetable* st) {
+    unsigned long i;
+
+    defaultCheck(st);
+    for (i = 0; i < st->number; ++i) {
+      if(st->blockspace[i].ptr) {
+        free(st->blockspace[i].ptr);
+        st->blockspace[i].ptr = NULL;
+      }
+    }
+
+    free(st->blockspace);
+}
+
+/*
+ * Get block id from
+ * table by pointer.
+ * It ensures, that the id is less or equal to the count of blocks
+ * If the return value is equal to the count of the blocks,
+ * then the ptr to search for is not found.
  */
 static unsigned long get_block_id_by_pointer(MMspacetable *st, void *ptr) {
   unsigned long i;

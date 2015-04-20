@@ -1,3 +1,14 @@
+/*
+ ============================================================================
+ Name        : int_conv.c
+
+ Author      : Tim Rollf, Oleksand Voroshylov
+ Version     :
+ Copyright   : 2015
+ Description : Memory manage task
+ ============================================================================
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
