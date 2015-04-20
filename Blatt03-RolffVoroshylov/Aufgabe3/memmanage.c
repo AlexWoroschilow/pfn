@@ -152,6 +152,7 @@ static unsigned long get_block_id_by_pointer(MMspacetable *st, void *ptr) {
   return st->number;
 }
 
+#if DYNAMIC_MEMORY == 1
 /*
   Resizes the inner table of the blockspace to ensure
   that new elements find there space in it.
@@ -180,6 +181,7 @@ static void resize_spacetable(MMspacetable* st, unsigned long newsize) {
 
   st->number = newsize;
 }
+#endif
 
 /**
  * Allocate memory block
@@ -197,7 +199,16 @@ void *mem_man_alloc(MMspacetable *st, char *file,
 
   i = get_block_id_by_pointer(st, ptr);
   if (i == st->number) {
+#if DYNAMIC_MEMORY == 1
     resize_spacetable(st, st->number * 2);
+#else
+    assert_with_message(ptr != NULL, /* !(ptr != NULL) = (ptr == NULL) */
+                        "All posible memory entrys are used "
+                        "so there is no free space for a new one\n"
+                        "Please set DYNAMIC_MEMORY 1 "
+                        "if you want dynamic memory.\n"
+                        "Error happend in:");
+#endif
   }
 
   block = &st->blockspace[i];

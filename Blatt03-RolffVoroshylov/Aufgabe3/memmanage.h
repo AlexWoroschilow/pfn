@@ -1,6 +1,8 @@
 #ifndef MEMMANAGE_H
 #define MEMMANAGE_H
 
+#define DYNAMIC_MEMORY 0
+
 typedef struct MMspaceblock MMspaceblock;
 typedef struct MMspacetable MMspacetable;
 
