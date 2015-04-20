@@ -45,10 +45,11 @@ int main(void)
      Wenn nicht auskommentiert, soll Testprogramm beim
      Aufruf von MEM_MAN_DELETE(d) mit Fehlermeldung abbrechen. */
 
+  /* Alex: hier vermutlich sollte MEM_MAN_DELETE_PTR sein */
   /*
   d = NULL;
   d = (float *) malloc( sizeof(float)*1 );
-  MEM_MAN_DELETE(spacetable, d); // Alex: hier vermutlich sollte MEM_MAN_DELETE_PTR sein
+  MEM_MAN_DELETE(spacetable, d);
   */
 
   MEM_MAN_DELETE_PTR(spacetable, b);

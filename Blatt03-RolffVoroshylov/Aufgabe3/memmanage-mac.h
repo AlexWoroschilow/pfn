@@ -25,14 +25,27 @@
 
 /* Check conditions and return
  a message if fail */
-#define ASSERT_WITH_MESSAGE(condition, message, file, line) \
-  if(!(condition)) \
-  { \
-    fprintf(stderr, message, file, line); \
+#define assert_with_message(condition, message) \
+  if(!(condition)) { \
+    fprintf(stderr, "%s in file \"%s\" at line %lu\n", \
+            message, __FILE__, (unsigned long) (__LINE__ - 1)); \
+    exit(EXIT_FAILURE); \
+  }
+
+#define assert_with_message_and_position(condition, message, file, line) \
+  if(!(condition)) { \
+    fprintf(stderr, "%s, in file \"%s\" at line %lu\n", \
+            message, file, line); \
     exit(EXIT_FAILURE); \
   }
 
 /* Reallocate a memory and display
- a message if not success */
-#define REALLOC_OR_EXIT(pointer, size, message, file, line)\
-  ASSERT_WITH_MESSAGE((pointer = realloc(pointer, size)) != NULL, message, file, line);
+   a message if not success */
+#define realloc_or_exit(pointer, size, message)\
+  assert_with_message((pointer = realloc(pointer, size)) != NULL, message);
+
+/* Allocate a memory and display
+   a message and stop the program if the allocation failed
+*/
+#define malloc_or_exit(pointer, size, message) \
+  assert_with_message((pointer = malloc(size)) != NULL, message);

@@ -1,7 +1,7 @@
 .PHONY: clean cleanup test
 CC=gcc
 LD=${CC}
-CFLAGS=-Wall -Werror -Wunused-parameter -ggdb
+CFLAGS=-Wall -Werror -Wunused-parameter -ggdb -std=c89
 LDFLAGS=-lm
 
 opt?=no

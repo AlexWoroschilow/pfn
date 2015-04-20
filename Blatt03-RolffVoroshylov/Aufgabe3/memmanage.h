@@ -1,19 +1,9 @@
 #ifndef MEMMANAGE_H
 #define MEMMANAGE_H
 
-typedef struct MMspaceblock {
-  void *ptr;
-  char *file;
-  unsigned long line;
-  unsigned long size;
-  unsigned long number;
-} MMspaceblock;
+typedef struct MMspaceblock MMspaceblock;
+typedef struct MMspacetable MMspacetable;
 
-typedef struct MMspacetable {
-  MMspaceblock * blockspace;
-  unsigned long next;
-  unsigned long number;
-} MMspacetable;
 
 MMspacetable* mem_man_new(unsigned long numberofblocks);
 void *mem_man_alloc(MMspacetable *st, char *file, unsigned long line, void *ptr,
