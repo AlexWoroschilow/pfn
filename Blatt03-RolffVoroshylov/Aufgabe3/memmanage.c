@@ -12,8 +12,8 @@ HINWEIS:
 Es kann ein dynamischer Speicher verwendet werden, 
 auch wenn dies in der Aufgabe nicht explizit verlangt war.
 Hierfuer muss DYNAMIC_MEMORY 1 in memmanage.h definiert werden.
-Dieses macht aber ohne dynamische Speicherverwaltung keinen sind, da es
-sich ja um einen Leak detector handelt und somit auch mit beliebigen
+Ein Leak detector macht aber ohne dynamische Speicherverwaltung keinen sind, 
+da dieser auch mit beliebigen
 speicher block groessen umgehen koennen sollte.
  */
 #include <stdio.h>
