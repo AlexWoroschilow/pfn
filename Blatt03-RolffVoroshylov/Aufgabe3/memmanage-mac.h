@@ -24,27 +24,6 @@
   mem_man_delete_ptr(ST, __FILE__, __LINE__, P);
 
 /**
- * if dynamic memory allocation enabled
- * this macro should resize a table
- */
-#if DYNAMIC_MEMORY == 1
-#define MEM_MAN_RESIZE(st, size, ptr)\
-          mem_man_resize(st, size);
-#else
-/**
- * if dynamic memory allocation enabled
- * given pointer should not be NULL
- */
-#define MEM_MAN_RESIZE(st, size, ptr)\
-  assert_with_message(ptr != NULL, \
-        "All posible memory entrys are used " \
-        "so there is no free space for a new one\n" \
-        "Please set DYNAMIC_MEMORY 1 " \
-        "if you want dynamic memory.\n" \
-        "Error happend in:");
-#endif
-
-/**
  * Validate memory table
  * and block space
  */
