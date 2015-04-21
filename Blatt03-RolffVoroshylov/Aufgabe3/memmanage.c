@@ -25,7 +25,7 @@ speicher block groessen umgehen koennen sollte.
 #include "memmanage.h"
 #include "memmanage-mac.h"
 
-#define defaultCheck(st) \
+#define default_check(st) \
   assert_with_message(st != NULL, "The table can not be NULL!"); \
   assert_with_message(st->blockspace != NULL, \
                       "There are no memory allocated for the blocks"); \
@@ -69,7 +69,7 @@ struct MMspacetable {
   unsigned long number;
 };
 
-/**
+/*
  * Create new memory
  * block table
  */
@@ -106,11 +106,10 @@ MMspacetable* mem_man_new(unsigned long numberofblocks) {
 /*
  Frees allocated blockspaces and there memory
 */
-
-static void freeMemory(const MMspacetable* st) {
+static void free_memory(const MMspacetable* st) {
     unsigned long i;
 
-    defaultCheck(st);
+    default_check(st);
     for (i = 0; i < st->number; ++i) {
       if(st->blockspace[i].ptr) {
         free(st->blockspace[i].ptr);
@@ -131,28 +130,21 @@ static void freeMemory(const MMspacetable* st) {
 static unsigned long get_block_id_by_pointer(MMspacetable *st, void *ptr) {
   unsigned long i;
 
-  defaultCheck(st);
-  if (ptr) {
-    for (i = 0; i < st->number; ++i) {
-      const MMspaceblock* check = &st->blockspace[i];
-      if (check->ptr == ptr) {
-        return i;
-      }
+  default_check(st);
+  for (i = 0; i < st->number; ++i) {
+    const MMspaceblock* check = &st->blockspace[i];
+    /* if ptr == NULL then the algorithm searches
+       for a free block, else it search for the exact pointer. */
+    if (check->ptr == ptr) {
+      return i;
     }
   }
-  else {
-    for (i = 0; i < st->number; ++i) {
-      const MMspaceblock* check = &st->blockspace[i];
-      if (!check->ptr) {
-        return i;
-      }
-    }
-  }
-
   /* nothing found */
   return st->number;
 }
 
+/* #define DYNAMIC_MEMORY 1 in memmanage.h if you want 
+   dynamic memory bookkeeping. */
 #if DYNAMIC_MEMORY == 1
 /*
   Resizes the inner table of the blockspace to ensure
@@ -162,7 +154,7 @@ static void resize_spacetable(MMspacetable* st, unsigned long newsize) {
   unsigned long i;
   MMspaceblock* block = NULL;
 
-  defaultCheck(st);
+  default_check(st);
   assert_with_message(st->number < newsize,
                       "The resize function can only expand the table");
   realloc_or_exit(st->blockspace, sizeof(MMspaceblock) * newsize,
@@ -184,7 +176,7 @@ static void resize_spacetable(MMspacetable* st, unsigned long newsize) {
 }
 #endif
 
-/**
+/*
  * Allocate memory block
  */
 void *mem_man_alloc(MMspacetable *st, char *file,
@@ -194,7 +186,7 @@ void *mem_man_alloc(MMspacetable *st, char *file,
   unsigned long i;
   MMspaceblock * block = NULL;
 
-  defaultCheck(st);
+  default_check(st);
   assert_with_message(file != NULL,
                       "The filename name can not be NULL!");
 
@@ -203,12 +195,12 @@ void *mem_man_alloc(MMspacetable *st, char *file,
 #if DYNAMIC_MEMORY == 1
     resize_spacetable(st, st->number * 2);
 #else
-    assert_with_message(ptr != NULL, /* !(ptr != NULL) = (ptr == NULL) */
+    assert_with_message(ptr != NULL,
                         "All posible memory entrys are used "
                         "so there is no free space for a new one\n"
                         "Please set DYNAMIC_MEMORY 1 "
-                        "if you want dynamic memory.\n"
-                        "Error happend in:");
+                        "if you want dynamic memory bookkeeping.\n"
+                        "Error happend in");
 #endif
   }
 
@@ -223,7 +215,7 @@ void *mem_man_alloc(MMspacetable *st, char *file,
   return block->ptr;
 }
 
-/**
+/*
  * Free a pointer,
  * show an error if pointer
  * was not allocated
@@ -233,7 +225,8 @@ void mem_man_delete_ptr(MMspacetable *st, char *file, unsigned long line,
   unsigned long i;
   MMspaceblock* block = NULL;
 
-  defaultCheck(st);
+  default_check(st);
+  assert_with_message(ptr != NULL, "The pointer can not be NULL!");
   assert_with_message(file != NULL, "The filename can not be NULL!");
 
   i = get_block_id_by_pointer(st, ptr);
@@ -251,13 +244,13 @@ void mem_man_delete_ptr(MMspacetable *st, char *file, unsigned long line,
   block->file = NULL;
 }
 
-/**
+/*
  * Display memory table state
  */
 void mem_man_info(const MMspacetable *st) {
 
   unsigned long i;
-  defaultCheck(st);
+  default_check(st);
 
   for (i = 0; i < st->number; i++) {
     const MMspaceblock * block = &st->blockspace[i];
@@ -268,12 +261,12 @@ void mem_man_info(const MMspacetable *st) {
   }
 }
 
-/**
+/*
  * Check for memory leaks
  */
 void mem_man_check(const MMspacetable *st) {
   unsigned long i;
-  defaultCheck(st);
+  default_check(st);
 
   for (i = 0; i < st->number; i++) {
     const MMspaceblock * block = &st->blockspace[i];
@@ -290,21 +283,21 @@ void mem_man_check(const MMspacetable *st) {
       The MMspacetable could not be freed becase it is
       declared as const.
       */
-      freeMemory(st);
+      free_memory(st);
       exit(EXIT_FAILURE);
     }
   }
 }
 
-/**
+/*
  * Free a memory table structure
  */
 void mem_man_delete(MMspacetable *st) {
   if(st)
   {
-    defaultCheck(st);
+    default_check(st);
 
-    freeMemory(st);
+    free_memory(st);
     st->blockspace = NULL;
     free(st);
     st = NULL;
