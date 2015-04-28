@@ -106,8 +106,7 @@ S = {4, 9, 14, 19}
 #include "intset.h"
 
 #define save_malloc(x, size) \
-  if (!(x = malloc(size))) \
-  { \
+  if ( !(x = malloc(size)) ) { \
     fprintf(stderr, "Not enough memory for an new object of size %lu\n", \
             (unsigned long) size); \
     exit(EXIT_FAILURE); \
