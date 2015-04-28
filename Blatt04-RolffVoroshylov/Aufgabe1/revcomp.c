@@ -15,21 +15,25 @@
 #include <assert.h>
 
 /* Check conditions and return
- a message if fail */
+ a message if fail
+ */
 #define assert_with_message(condition, message) \
-  if(!(condition)) { \
+  if (!(condition)) { \
     fprintf(stderr, "%s in file \"%s\" at line %lu\n", \
-            message, __FILE__, (unsigned long) (__LINE__ - 1)); \
+            message, __FILE__, (unsigned long) __LINE__); \
     exit(EXIT_FAILURE); \
   }
 
-/**
- * Try to open file and
- * assert pointer not equal NULL
+/* Try to open file and
+ assert pointer not equal NULL
  */
-#define fopen_or_exit(source, filename, mode, message) \
-    source = fopen(filename, mode);\
-    assert_with_message(source != NULL, "Can not open .seq file");
+#define fopen_or_exit(source, filename, mode) \
+    if ((source = fopen(filename, mode)) == NULL) { \
+        fprintf(stderr, "Can not open file %s in mode %s\n" \
+                        "Error in file %s at line %lu\n", \
+                        filename, mode, __FILE__, (unsigned long) __LINE__); \
+        exit(EXIT_FAILURE); \
+    }
 
 /* Allocate a memory and display
  a message and stop the program if the allocation failed
@@ -37,9 +41,20 @@
 #define malloc_or_exit(pointer, size, message) \
   assert_with_message((pointer = malloc(size)) != NULL, message);
 
-/**
- * Get file size
- * copy-paste from PDF-Document
+/* Reallocate a memory and display
+ a message and stop the program if the allocation failed
+ */
+#define realloc_or_exit(pointer, size, message) \
+  assert_with_message((pointer = realloc(pointer, size)) != NULL, message);
+
+/* get the minimum from x, y */
+#define min(x, y) (x < y) ? (x) : (y)
+
+/* Alternativ: get <sys/sysinfo.h> informations for the ram size */
+#define BUFFERSIZE 65536UL
+
+/* Get file size
+ copy-paste from PDF-Document
  */
 unsigned long file_size(const char *inputfile) {
   long filesize;
@@ -52,113 +67,107 @@ unsigned long file_size(const char *inputfile) {
   return (unsigned long) filesize;
 }
 
-/**
- * Get size of first line,
- */
+/* Get size of first line */
 unsigned long line_size(char *filename) {
-
-  char character;
-
-  FILE *f_source = NULL;
-  fopen_or_exit(f_source, filename, "rb", "Can not open .seq file");
-
+  int character;
   unsigned long i;
-  for (i = 0; (character = fgetc(f_source)) != EOF; i++) {
-    if (character == '\n') {
-      /* do not return here,
-       * needs to close a file */
-      break;
-    }
+  FILE *f_source = NULL;
+
+  fopen_or_exit(f_source, filename, "rb");
+  character = fgetc(f_source);
+  for (i = 0; character != EOF && character != '\n'; ++i) {
+    character = fgetc(f_source);
   }
+
   /* close file, free memory */
   fclose(f_source);
-
   return i;
 }
 
-/**
- * Generate rev.com. file name
- * add a custom suffix at end of file to end
+/* Append the suffix to the filename and return a
+ char pointer to a new string with the concatenated filename.
  */
 char * revcomp_filename(char *filename, const char * suffix) {
-
   char * acceptor = NULL;
-
-  unsigned long filname_length = strlen(filename) * sizeof(char)
-      + strlen(suffix) + 1;
-
-  malloc_or_exit(acceptor, filname_length,
-      "Can not allocate memory for new .rc file");
-
+  malloc_or_exit(acceptor,
+      (strlen(suffix) + strlen(filename) + 1) * sizeof(char),
+      "Could not allocate enough memory for the output filename");
   strcpy(acceptor, filename);
-  strcpy(acceptor + strlen(filename), suffix);
-
+  acceptor = strcat(acceptor, suffix);
+  assert_with_message(acceptor != NULL,
+      "Could append the suffix to the output filename");
   return acceptor;
 }
 
-/**
- * Replace char with given rules
+/* Replace char with given rules
+ Returns 0 at failure.
  */
-char revcomp_reverce(char source) {
+char revcomp_reverse(char source) {
   switch (source) {
-  case 'A':
-    return 'T';
-  case 'C':
-    return 'G';
-  case 'G':
-    return 'C';
-  case 'T':
-    return 'A';
+    case 'A': return 'T';
+    case 'C': return 'G';
+    case 'G': return 'C';
+    case 'T': return 'A';
   }
+  /* At failure return 0 */
+  return 0;
 }
 
-/**
- * Calculate a reverse-complement
- * create a new file and store result
+/* Calculate a reverse-complement
+ create a new file and store result
  */
 void revcomp_calculate(char *source) {
+  unsigned long j, k, buffersize, to_read, filesize, linesize;
+  char * acceptor = NULL, *buffer = NULL;
+  FILE * f_source = NULL, *f_acceptor = NULL;
 
-  const unsigned long filesize = file_size(source);
-  /* extract a format from given file,
-   * that may be a problem in case that  linesize == filesize
-   * but for this task, its is ok */
-  const unsigned long linesize = line_size(source);
-  /* calculate a new name, add suffix at the end of source file name */
-  char * acceptor = revcomp_filename(source, ".rc");
-
+  to_read = filesize = file_size(source);
+  linesize = line_size(source);
   assert_with_message(filesize > 0, "File should not be empty");
   assert_with_message(linesize > 0, "Line should not be empty");
 
-  FILE *f_source = NULL;
-  FILE *f_acceptor = NULL;
+  acceptor = revcomp_filename(source, ".rc");
+  /* set the buffersize maximal to the filesize if BUFFERSIZE bigger than
+   filesize */
+  buffersize = min(filesize, BUFFERSIZE);
+  malloc_or_exit(buffer, buffersize * sizeof(char),
+      "Could not allocate the buffer");
 
-  fopen_or_exit(f_source, source, "rb", "Can not open .seq file");
-  fopen_or_exit(f_acceptor, acceptor, "wb", "Can not open .rc file");
+  fopen_or_exit(f_source, source, "rb");
+  fopen_or_exit(f_acceptor, acceptor, "wb");
 
-  /* set pointer to end of file */
-  fseek(f_source, 0, SEEK_END);
+  j = 0;
+  while (to_read > 0) {
+    /* size to read (rest of file of buffersize), rest > 0 */
+    const unsigned long rest = min(to_read, buffersize);
+    to_read -= rest;
+    /* seek from start to the rest */
+    fseek(f_source, to_read, SEEK_SET);
+    /* fill the buffer */
+    fread(buffer, sizeof(*buffer), rest, f_source);
+    /* read the buffer */
+    for (k = 0; k < rest; ++k) {
+      /* get the current base */
+      const char base = buffer[rest - k - 1];
+      /* skip control symbols */
+      if (base != '\n' && base != ' ' && base != EOF) {
+        /* build the reverse of base */
+        const char reverse = revcomp_reverse(base);
+        /* check for error */
+        if (reverse == 0) {
+          printf("Could not found the reverse of the base %c (ASCII %d)\n",
+              base, base);
+          exit(EXIT_FAILURE);
+        } else {
+          /* write direct to the output file */
+          fputc(reverse, f_acceptor);
 
-  unsigned long i;
-  unsigned long j;
-
-  for (j = 0, i = 0; i <= filesize; i++) {
-
-    /* calculate current position from end of file*/
-    fseek(f_source, -(i), SEEK_END);
-
-    char c;
-
-    /* Not end of file and not end of line */
-    if ((c = fgetc(f_source)) != EOF && c != '\n') {
-      j++;
-
-      /* write direct to file */
-      fputc(revcomp_reverce(c), f_acceptor);
-
-      if (j == linesize) {
-        /* write with given format */
-        fputc('\n', f_acceptor);
-        j = 0;
+          if (++j == linesize) {
+            /* write a linebreak */
+            fputc('\n', f_acceptor);
+            j = 0;
+          }
+        }
       }
     }
   }
@@ -167,15 +176,12 @@ void revcomp_calculate(char *source) {
   fclose(f_acceptor);
 
   free(acceptor);
+  free(buffer);
 }
 
-/**
- * Main function
- */
-int main(int argc, char ** argv) {
-
+/* Main function */
+int main(int argc, char* argv[]) {
   if (argc == 2) {
-
     char * filename = NULL;
 
     malloc_or_exit(filename, (strlen(argv[1]) + 1),
@@ -193,5 +199,5 @@ int main(int argc, char ** argv) {
   }
 
   fprintf(stderr, "Usage: %s <filename>\n", argv[0]);
-  exit(EXIT_FAILURE);
+  return EXIT_SUCCESS;
 }
