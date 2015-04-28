@@ -18,7 +18,7 @@
    a message if fail
  */
 #define assert_with_message(condition, message) \
-  if(!(condition)) { \
+  if (!(condition)) { \
     fprintf(stderr, "%s in file \"%s\" at line %lu\n", \
             message, __FILE__, (unsigned long) __LINE__); \
     exit(EXIT_FAILURE); \
@@ -28,7 +28,7 @@
    assert pointer not equal NULL
  */
 #define fopen_or_exit(source, filename, mode) \
-    if((source = fopen(filename, mode)) == NULL) { \
+    if ((source = fopen(filename, mode)) == NULL) { \
         fprintf(stderr, "Can not open file %s in mode %s\n" \
                         "Error in file %s at line %lu\n", \
                         filename, mode, __FILE__, (unsigned long) __LINE__); \
@@ -75,7 +75,7 @@ unsigned long line_size(char *filename) {
 
   fopen_or_exit(f_source, filename, "rb");
   character = fgetc(f_source);
-  for(i = 0; character != EOF && character != '\n'; ++i) {
+  for (i = 0; character != EOF && character != '\n'; ++i) {
     character = fgetc(f_source);
   }
 
