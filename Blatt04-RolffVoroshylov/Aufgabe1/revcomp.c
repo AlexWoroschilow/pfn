@@ -101,10 +101,14 @@ char * revcomp_filename(char *filename, const char * suffix) {
  */
 char revcomp_reverce(char source) {
   switch (source) {
-    case 'A': return 'T';
-    case 'C': return 'G';
-    case 'G': return 'C';
-    case 'T': return 'A';
+  case 'A':
+    return 'T';
+  case 'C':
+    return 'G';
+  case 'G':
+    return 'C';
+  case 'T':
+    return 'A';
   }
 }
 
@@ -115,7 +119,9 @@ char revcomp_reverce(char source) {
 void revcomp_calculate(char *source) {
 
   const unsigned long filesize = file_size(source);
-  /* extract a format from given file */
+  /* extract a format from given file,
+   * that may be a problem in case that  linesize == filesize
+   * but for this task, its is ok */
   const unsigned long linesize = line_size(source);
   /* calculate a new name, add suffix at the end of source file name */
   char * acceptor = revcomp_filename(source, ".rc");
@@ -169,8 +175,19 @@ void revcomp_calculate(char *source) {
 int main(int argc, char ** argv) {
 
   if (argc == 2) {
-    /* all symbols can be a file name */
-    revcomp_calculate(argv[1]);
+
+    char * filename = NULL;
+
+    malloc_or_exit(filename, (strlen(argv[1]) + 1),
+        "Can not allocate memory for file name");
+
+    /* file name should have an alphanumeric + point */
+    if (sscanf(argv[1], "%[A-z0-9.]", filename)) {
+      revcomp_calculate(filename);
+    }
+    /* not really needs, but we
+     * should go the right way */
+    free(filename);
 
     exit(EXIT_SUCCESS);
   }
