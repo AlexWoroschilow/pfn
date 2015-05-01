@@ -1,4 +1,5 @@
 *.pdf
+*.tar.gz
 *.mk
 *.x
 *.o
