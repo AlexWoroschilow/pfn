@@ -18,12 +18,11 @@ typedef struct Population Population;
  * Initialize population with given parameters
  *
  * @variable n_a - count of Dolly - A bacteria
- * @variable p_a - reproduce probability of Dolly - A bacteria
  * @variable n_b - count of Dolly - B bacteria
  * @variable n_b - reproduce probability of Dolly - B bacteria
  */
-Population * population_initialize(unsigned long n_a, float p_a,
-    unsigned long n_b, float p_b, char * filename);
+Population * population_initialize(unsigned long n_a, unsigned long n_b,
+    char * filename);
 
 /**
  * Eliminate current population
@@ -43,8 +42,12 @@ void population_free(Population * population);
  * Create a new generation on given population
  *
  * @variable population - affected population
+ * @variable i - step
+ * @variable p_a - reproduce probability of Dolly - A bacteria
+ * @variable p_b - reproduce probability of Dolly - B bacteria
  */
-void population_generation(Population * population, unsigned long step);
+void population_generation(Population * population, unsigned long step,
+    float p_a, float p_b);
 
 /**
  * Print statistic of a current population

@@ -47,22 +47,22 @@ void printer_success(unsigned long count, unsigned long count_a,
 void simul_evolution(unsigned long n_a, float p_a, unsigned long n_b, float p_b,
     unsigned long maxsteps, char * filename) {
 
-  Population * population = population_initialize(n_a, p_a, n_b, p_b, filename);
+  Population * population = population_initialize(n_a, n_b, filename);
 
   unsigned long i;
   for (i = 1; i <= maxsteps; i++) {
+
+    population_generation(population, i, p_a, p_b);
 
     if ((population_generation_check(population, &checker))) {
       population_generation_print(population, &printer_success);
       printf("\tsteps:%lu\n", i);
       break;
     }
-
-    population_generation(population, i);
   }
 
   if (i > maxsteps) {
-    printf("simulation stopped after %lu steps ", maxsteps);
+    printf("simulation stopped after %lu steps ", i);
     population_generation_print(population, &printer_fail);
     printf("\n");
   }

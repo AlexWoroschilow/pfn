@@ -44,8 +44,9 @@
  * Validate a simple bacteria
  */
 #define ENPE_COMPLETII_VALIDATE(bacteria) \
-    assert_with_message((bacteria != NULL), "");\
-    assert_with_message((bacteria->gene !=NULL), "");\
+    assert_with_message((bacteria != NULL), "EnpeCompletii can not be empty");\
+    assert_with_message((bacteria->gene !=NULL), "EnpeCompletii gene can not be empty");\
+
 
 /**
  * needs to minimize a
@@ -60,8 +61,17 @@
  * Validate a population
  */
 #define POPULATION_VALIDATE(population) \
-    assert_with_message(population != NULL, "");\
-    assert_with_message(population->count > 0, "");\
+    assert_with_message((population != NULL), "Population can not be empty");\
+    assert_with_message((population->space != NULL), "Population space can not be empty");\
+    assert_with_message((population->count > 0), "Count of individuums in population can not be 0");\
+
+/**
+ * Validate a population
+ */
+#define POPULATION_VALIDATE_LIGHT(population) \
+    assert_with_message((population != NULL), "Population can not be empty");\
+    assert_with_message((population->count > 0), "Count of individuums in population can not be 0");\
+
 
 /**
  * Get random number from 0 to max
@@ -182,44 +192,23 @@ void enpe_completii_kill(EnpeCompletii * bacteria) {
  * @variable n_b - count of Dolly - B bacteria
  * @variable n_b - reproduce probability of Dolly - B bacteria
  */
-Population * population_initialize(unsigned long n_a, float p_a,
-    unsigned long n_b, float p_b, char * export_filename) {
+Population * population_initialize(unsigned long n_a, unsigned long n_b,
+    char * export_filename) {
 
   Population * population = NULL;
 
   malloc_or_exit(population, sizeof(*population),
       "Can not allocate memory for population");
 
-  malloc_or_exit(population->space, ((n_a + n_b) * sizeof(*population->space)),
-      "Can not allocate memory for population space");
-
-  if (export_filename) {
-    fopen_or_exit(population->export, export_filename, "w");
-  }
-
+  population->space = NULL;
   population->count = n_a + n_b;
   population->count_a = n_a;
   population->count_b = n_b;
 
-  unsigned int i;
-  for (i = 0; i < population->count; i++) {
-    population->space[i].individuum = enpe_completii_create(((i < n_a) ? A : B),
-        ((i < n_a) ? p_a : p_b));
+  if (export_filename) {
+    fopen_or_exit(population->export, export_filename, "w");
   }
-
-  POPULATION_GENERATION_DUMP(population->export, population, 0);
-
   return population;
-}
-
-/**
- * Get random place in a population
- *
- * @variable population - population to get spoit id from
- */
-unsigned long population_random_spot_id(Population * population) {
-  POPULATION_VALIDATE(population);
-  return RAND(population->count);
 }
 
 /**
@@ -303,32 +292,65 @@ void population_free(Population * population) {
 }
 
 /**
+ * Get random place in a population
+ *
+ * @variable population - population to get spot id from
+ */
+unsigned long population_random_spot_id(Population * population) {
+  POPULATION_VALIDATE(population);
+  return RAND(population->count);
+}
+
+
+/**
  * Create a new generation on given population
  *
  * @variable population - affected population
  */
-void population_generation(Population * population, unsigned long step) {
+void population_generation(Population * population, unsigned long step,
+    float p_a, float p_b) {
 
-  POPULATION_VALIDATE(population);
+  POPULATION_VALIDATE_LIGHT(population);
 
-  unsigned long i;
-  for (i = 0; i < population->count; i++) {
+  /* Create a first generation */
+  if (!population->space) {
 
-    EnpeCompletii * children = NULL;
-    if ((children = enpe_completii_reproduce(population->space[i].individuum))) {
+    malloc_or_exit(population->space,
+        (population->count * sizeof(*population->space)),
+        "Can not allocate memory for population space");
 
-      unsigned long id = population_random_spot_id(population);
-
-      if (id == population->count) {
-        enpe_completii_kill(children);
-        continue;
-      }
-
-      PopulationSpot * spot = &population->space[id];
-      population_kill(population, spot);
-      population_append(population, spot, children);
+    unsigned int i;
+    for (i = 0; i < population->count; i++) {
+      EnpeCompletii * bacteria = enpe_completii_create(
+          ((i < population->count_a) ? A : B),
+          ((i < population->count_a) ? p_a : p_b));
+      population->space[i].individuum = bacteria;
     }
+
+    /* Create other generations */
+  } else {
+
+    unsigned long i;
+    for (i = 0; i < population->count; i++) {
+
+      EnpeCompletii * children = NULL;
+      if ((children = enpe_completii_reproduce(population->space[i].individuum))) {
+
+        unsigned long id = population_random_spot_id(population);
+
+        if (id == population->count) {
+          enpe_completii_kill(children);
+          continue;
+        }
+
+        PopulationSpot * spot = &population->space[id];
+        population_kill(population, spot);
+        population_append(population, spot, children);
+      }
+    }
+
   }
+
   /* dump population to file*/
   POPULATION_GENERATION_DUMP(population->export, population, step);
 }
