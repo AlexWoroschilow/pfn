@@ -2,8 +2,13 @@
 
 CC=gcc
 CFLAGS=-g -Wall -Werror -O3 -Wunused-parameter -Wpointer-arith
+SIMEVOLOBJ=simul_evolution.o population.o
 
 all: simul_evolution.x
+
+simul_evolution.x: ${SIMEVOLOBJ}
+	${CC} ${LDFLAGS} ${SIMEVOLOBJ} -o $@
+
 
 %.x: %.c
 	${CC} ${CFLAGS} -o $@ $<
