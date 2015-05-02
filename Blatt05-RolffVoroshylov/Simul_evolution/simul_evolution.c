@@ -105,6 +105,7 @@ int main(int argc, char * argv[]) {
       }
     }
   }
-
+  printf("Usage: %s <n_a> <p_a> <n_b> <p_b> <maxsteps> [<filename>]\n",
+      argv[0]);
   exit(EXIT_FAILURE);
 }
