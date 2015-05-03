@@ -21,8 +21,8 @@ typedef struct Population Population;
  * @variable n_b - count of Dolly - B bacteria
  * @variable n_b - reproduce probability of Dolly - B bacteria
  */
-Population * population_initialize(unsigned long n_a, unsigned long n_b,
-    char * filename);
+Population * population_initialize(Population * population, unsigned long n_a,
+    unsigned long n_b, FILE * export);
 
 /**
  * Eliminate current population

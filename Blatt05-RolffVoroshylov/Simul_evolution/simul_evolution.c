@@ -15,6 +15,17 @@
 #include <assert.h>
 #include "population.h"
 
+/* Try to open file and
+ assert pointer not equal NULL
+ */
+#define fopen_or_exit(source, filename, mode) \
+    if ((source = fopen(filename, mode)) == NULL) { \
+        fprintf(stderr, "Can not open file %s in mode %s\n" \
+                        "Error in file %s at line %lu\n", \
+                        filename, mode, __FILE__, (unsigned long) __LINE__); \
+        exit(EXIT_FAILURE); \
+    }
+
 /**
  * Check if a all bacteria
  * have a same gene
@@ -47,7 +58,14 @@ void printer_success(unsigned long count, unsigned long count_a,
 void simul_evolution(unsigned long n_a, float p_a, unsigned long n_b, float p_b,
     unsigned long maxsteps, char * filename) {
 
-  Population * population = population_initialize(n_a, n_b, filename);
+  FILE * dump = NULL;
+  Population * population = NULL;
+
+  if (filename != NULL) {
+    fopen_or_exit(dump, filename, "w");
+  }
+
+  population = population_initialize(NULL, n_a, n_b, dump);
 
   unsigned long i;
   for (i = 1; i <= maxsteps; i++) {
@@ -62,12 +80,16 @@ void simul_evolution(unsigned long n_a, float p_a, unsigned long n_b, float p_b,
   }
 
   if (i > maxsteps) {
-    printf("simulation stopped after %lu steps ", i);
+    printf("simulation stopped after %lu steps ", maxsteps);
     population_generation_print(population, &printer_fail);
     printf("\n");
   }
 
   population_free(population);
+
+  if (dump != NULL) {
+    fclose(dump);
+  }
 }
 
 /**

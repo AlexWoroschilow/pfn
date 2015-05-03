@@ -14,17 +14,6 @@
 #include <assert.h>
 #include "population.h"
 
-/* Try to open file and
- assert pointer not equal NULL
- */
-#define fopen_or_exit(source, filename, mode) \
-    if ((source = fopen(filename, mode)) == NULL) { \
-        fprintf(stderr, "Can not open file %s in mode %s\n" \
-                        "Error in file %s at line %lu\n", \
-                        filename, mode, __FILE__, (unsigned long) __LINE__); \
-        exit(EXIT_FAILURE); \
-    }
-
 /* Check conditions and return
  a message if fail */
 #define assert_with_message(condition, message) \
@@ -39,6 +28,11 @@
  */
 #define malloc_or_exit(pointer, size, message) \
   assert_with_message((pointer = malloc(size)) != NULL, message);
+
+/* Reallocate a memory and display
+ a message if not success */
+#define realloc_or_exit(pointer, size, message)\
+  assert_with_message((pointer = realloc(pointer, size)) != NULL, message);
 
 /**
  * Validate a simple bacteria
@@ -192,22 +186,20 @@ void enpe_completii_kill(EnpeCompletii * bacteria) {
  * @variable n_b - count of Dolly - B bacteria
  * @variable n_b - reproduce probability of Dolly - B bacteria
  */
-Population * population_initialize(unsigned long n_a, unsigned long n_b,
-    char * export_filename) {
+Population * population_initialize(Population * population, unsigned long n_a,
+    unsigned long n_b, FILE * export) {
 
-  Population * population = NULL;
-
-  malloc_or_exit(population, sizeof(*population),
-      "Can not allocate memory for population");
+  if (population == NULL) {
+    realloc_or_exit(population, sizeof(*population),
+        "Can not allocate memory for population");
+  }
 
   population->space = NULL;
+  population->export = export;
   population->count = n_a + n_b;
   population->count_a = n_a;
   population->count_b = n_b;
 
-  if (export_filename) {
-    fopen_or_exit(population->export, export_filename, "w");
-  }
   return population;
 }
 
@@ -268,7 +260,11 @@ void population_genocide(Population * population) {
   for (i = 0; i < population->count; i++) {
     PopulationSpot * population_spot = &population->space[i];
     enpe_completii_kill(population_spot->individuum);
+    population_spot->individuum = NULL;
   }
+
+  free(population->space);
+  population->space = NULL;
 }
 
 /**
@@ -279,13 +275,7 @@ void population_genocide(Population * population) {
 void population_free(Population * population) {
 
   if (population) {
-
     population_genocide(population);
-
-    if (population->export) {
-      fclose(population->export);
-    }
-
     free(population->space);
     free(population);
   }
@@ -301,7 +291,6 @@ unsigned long population_random_spot_id(Population * population) {
   return RAND(population->count);
 }
 
-
 /**
  * Create a new generation on given population
  *
@@ -315,7 +304,7 @@ void population_generation(Population * population, unsigned long step,
   /* Create a first generation */
   if (!population->space) {
 
-    malloc_or_exit(population->space,
+    realloc_or_exit(population->space,
         (population->count * sizeof(*population->space)),
         "Can not allocate memory for population space");
 
