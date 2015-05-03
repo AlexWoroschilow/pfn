@@ -129,11 +129,11 @@ typedef struct Population {
 EnpeCompletii * enpe_completii_create(Dolly type, float probability) {
 
   EnpeCompletii * individual = NULL;
-
-  malloc_or_exit(individual, sizeof(*individual),
+  realloc_or_exit(individual, sizeof(*individual),
       "Can not allocate memory for generation space");
 
-  malloc_or_exit(individual->gene, sizeof(*individual->gene),
+  individual->gene = NULL;
+  realloc_or_exit(individual->gene, sizeof(*individual->gene),
       "Can not allocate memory for generation space");
 
   individual->gene->type = type;
