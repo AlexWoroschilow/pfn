@@ -23,12 +23,6 @@
     exit(EXIT_FAILURE); \
   }
 
-/* Allocate a memory and display
- a message and stop the program if the allocation failed
- */
-#define malloc_or_exit(pointer, size, message) \
-  assert_with_message((pointer = malloc(size)) != NULL, message);
-
 /* Reallocate a memory and display
  a message if not success */
 #define realloc_or_exit(pointer, size, message)\
