@@ -388,4 +388,3 @@ population_generation_check(Population * population,
                     population->count_a,
                     population->count_b);
 }
-
