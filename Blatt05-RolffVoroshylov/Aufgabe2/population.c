@@ -14,17 +14,21 @@
 #include <assert.h>
 #include "population.h"
 
-/* Check conditions and return
- a message if fail */
+/**
+ * Check conditions and return
+ * a message if fail
+ */
 #define assert_with_message(condition, message) \
-  if(!(condition)) { \
+  if (!(condition)) { \
     fprintf(stderr, "%s in file \"%s\" at line %lu\n", \
             message, __FILE__, (unsigned long) (__LINE__ - 1)); \
     exit(EXIT_FAILURE); \
   }
 
-/* Reallocate a memory and display
- a message if not success */
+/**
+ * Reallocate a memory and display
+ * a message if not success
+ */
 #define realloc_or_exit(pointer, size, message)\
   assert_with_message((pointer = realloc(pointer, size)) != NULL, message);
 
@@ -32,8 +36,10 @@
  * Validate a simple bacteria
  */
 #define ENPE_COMPLETII_VALIDATE(bacteria) \
-    assert_with_message((bacteria != NULL), "EnpeCompletii can not be empty");\
-    assert_with_message((bacteria->gene !=NULL), "EnpeCompletii gene can not be empty");\
+    assert_with_message((bacteria != NULL), \
+                        "EnpeCompletii can not be empty");\
+    assert_with_message((bacteria->gene !=NULL), \
+                        "EnpeCompletii gene can not be empty");
 
 
 /**
@@ -41,36 +47,41 @@
  * function-calls
  */
 #define POPULATION_GENERATION_DUMP(export_file, population, step) \
-  if((export_file)) { \
-    population_generation_dump(population, step);\
+  if ((export_file)) { \
+    population_generation_dump(population, step); \
   }
 
 /**
  * Validate a population
  */
 #define POPULATION_VALIDATE(population) \
-    assert_with_message((population != NULL), "Population can not be empty");\
-    assert_with_message((population->space != NULL), "Population space can not be empty");\
-    assert_with_message((population->count > 0), "Count of individuums in population can not be 0");\
+    assert_with_message((population != NULL), \
+                        "Population can not be empty"); \
+    assert_with_message((population->space != NULL), \
+                        "Population space can not be empty"); \
+    assert_with_message((population->count > 0), \
+                        "Count of individuums in population can not be 0");
 
 /**
  * Validate a population
  */
 #define POPULATION_VALIDATE_LIGHT(population) \
-    assert_with_message((population != NULL), "Population can not be empty");\
-    assert_with_message((population->count > 0), "Count of individuums in population can not be 0");\
+    assert_with_message((population != NULL), \
+                        "Population can not be empty"); \
+    assert_with_message((population->count > 0), \
+                        "Count of individuums in population can not be 0");
 
 
 /**
  * Get random number from 0 to max
  */
-#define RAND(max)\
-    (rand() % ((max)+1))\
+/* because we deal with random numbers its no deal if we get an overflow */
+#define RAND(max) ((lrand48() + lrand48()) % ((max) + 1))
 
 /**
  * Dolly gene with 2 variants (0,1)
  */
-typedef enum Dolly {
+typedef enum {
   A, B
 } Dolly;
 
@@ -78,16 +89,16 @@ typedef enum Dolly {
  * Structure to store gene-information
  * for each bacteria
  */
-typedef struct Gene {
+typedef struct {
+  double probability;
   Dolly type;
-  float probability;
 } Gene;
 
 /**
  * Structure to store
  * a bacteria with gene information
  */
-typedef struct EnpeCompletii {
+typedef struct {
   Gene * gene;
 } EnpeCompletii;
 
@@ -95,7 +106,7 @@ typedef struct EnpeCompletii {
  * Just a place for one bacteria
  * in a population
  */
-typedef struct PopulationSpot {
+typedef struct {
   EnpeCompletii * individuum;
 } PopulationSpot;
 
@@ -107,11 +118,11 @@ typedef struct PopulationSpot {
  * @variable count_b - count of bacteria with Dolly - B
  */
 typedef struct Population {
-  unsigned long count;
-  unsigned long count_a;
-  unsigned long count_b;
-  FILE * export;
   PopulationSpot * space;
+  FILE * export;
+  unsigned long count,
+                count_a,
+                count_b;
 } Population;
 
 /**
@@ -147,13 +158,11 @@ EnpeCompletii * enpe_completii_reproduce(EnpeCompletii * bacteria) {
 
   ENPE_COMPLETII_VALIDATE(bacteria);
 
-  /* for zero probability do nothing */
   if (bacteria->gene->probability) {
-    float random = RAND(100) / 100;
-    if (bacteria->gene->probability == 1
-        || bacteria->gene->probability > random) {
+    const double random = drand48();
+    if (bacteria->gene->probability >= random) {
       return enpe_completii_create(bacteria->gene->type,
-          bacteria->gene->probability);
+                                   bacteria->gene->probability);
     }
   }
 
@@ -181,7 +190,7 @@ void enpe_completii_kill(EnpeCompletii * bacteria) {
  * @variable n_b - reproduce probability of Dolly - B bacteria
  */
 Population * population_initialize(Population * population, unsigned long n_a,
-    unsigned long n_b, FILE * export) {
+                                   unsigned long n_b, FILE * export) {
 
   if (population == NULL) {
     realloc_or_exit(population, sizeof(*population),
@@ -205,7 +214,7 @@ Population * population_initialize(Population * population, unsigned long n_a,
  * @variable children - bacteria to append
  */
 void population_append(Population * population, PopulationSpot * spot,
-    EnpeCompletii * children) {
+                       EnpeCompletii * children) {
 
   POPULATION_VALIDATE(population);
 
@@ -291,7 +300,7 @@ unsigned long population_random_spot_id(Population * population) {
  * @variable population - affected population
  */
 void population_generation(Population * population, unsigned long step,
-    float p_a, float p_b) {
+                           float p_a, float p_b) {
 
   POPULATION_VALIDATE_LIGHT(population);
 
@@ -312,12 +321,12 @@ void population_generation(Population * population, unsigned long step,
 
     /* Create other generations */
   } else {
-
     unsigned long i;
     for (i = 0; i < population->count; i++) {
 
       EnpeCompletii * children = NULL;
-      if ((children = enpe_completii_reproduce(population->space[i].individuum))) {
+      if ((children = enpe_completii_reproduce(population->space[i].
+                                               individuum))) {
 
         unsigned long id = population_random_spot_id(population);
 
@@ -356,19 +365,27 @@ void population_generation_dump(Population * population, unsigned long step) {
  * using a given print-function
  */
 void population_generation_print(Population * population,
-    void (*printer)(unsigned long count, unsigned long count_a,
-        unsigned long count_b)) {
+                                 void (*printer)(unsigned long count,
+                                                 unsigned long count_a,
+                                                 unsigned long count_b)) {
   POPULATION_VALIDATE(population);
-  return (*printer)(population->count, population->count_a, population->count_b);
+  return (*printer)(population->count,
+                    population->count_a,
+                    population->count_b);
 }
 
 /**
  * Check a population properties
  * using a custom function
  */
-unsigned int population_generation_check(Population * population,
-    unsigned int (*checker)(unsigned long count, unsigned long count_a,
-        unsigned long count_b)) {
+unsigned int
+population_generation_check(Population * population,
+                            unsigned int (*checker)(unsigned long count,
+                                                    unsigned long count_a,
+                                                    unsigned long count_b)) {
   POPULATION_VALIDATE(population);
-  return (*checker)(population->count, population->count_a, population->count_b);
+  return (*checker)(population->count,
+                    population->count_a,
+                    population->count_b);
 }
+

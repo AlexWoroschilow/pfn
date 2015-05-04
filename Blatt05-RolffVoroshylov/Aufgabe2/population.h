@@ -21,8 +21,9 @@ typedef struct Population Population;
  * @variable n_b - count of Dolly - B bacteria
  * @variable n_b - reproduce probability of Dolly - B bacteria
  */
-Population * population_initialize(Population * population, unsigned long n_a,
-    unsigned long n_b, FILE * export);
+Population * population_initialize(Population * population,
+                                   unsigned long n_a,
+                                   unsigned long n_b, FILE * export);
 
 /**
  * Eliminate current population
@@ -47,7 +48,7 @@ void population_free(Population * population);
  * @variable p_b - reproduce probability of Dolly - B bacteria
  */
 void population_generation(Population * population, unsigned long step,
-    float p_a, float p_b);
+                           float p_a, float p_b);
 
 /**
  * Print statistic of a current population
@@ -61,14 +62,16 @@ void population_generation_dump(Population * population, unsigned long step);
  * using a given print-function
  */
 void population_generation_print(Population * population,
-    void (*printer)(unsigned long count, unsigned long count_a,
-        unsigned long count_b));
+                                 void (*printer)(unsigned long count,
+                                                 unsigned long count_a,
+                                                 unsigned long count_b));
 
 /**
  * Check a population properties
  * using a custom function
  */
-unsigned int population_generation_check(Population * population,
-    unsigned int (*checker)(unsigned long count, unsigned long count_a,
-        unsigned long count_b));
-
+unsigned int
+population_generation_check(Population * population,
+                            unsigned int (*checker)(unsigned long count,
+                                                    unsigned long count_a,
+                                                    unsigned long count_b));
