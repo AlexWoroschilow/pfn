@@ -14,11 +14,8 @@
 #include <stdbool.h>
 #include <string.h>
 #include <assert.h>
-#include <time.h>
+#include <limits.h>
 #include "population.h"
-
-/* set deterministic to 1 if you want deterministic resutlts */
-#define DETERMINISTIC 0
 
 /* Try to open file and
  assert pointer not equal NULL
@@ -36,7 +33,7 @@
  * have a same gene
  */
 unsigned int checker(unsigned long count, unsigned long count_a,
-                     unsigned long count_b) {
+    unsigned long count_b) {
   return ((count == count_a) || (count == count_b));
 }
 
@@ -44,7 +41,7 @@ unsigned int checker(unsigned long count, unsigned long count_a,
  * Display a loop-end message
  */
 void printer_fail(__attribute__((unused)) unsigned long count,
-                  unsigned long count_a, unsigned long count_b) {
+    unsigned long count_a, unsigned long count_b) {
   printf("(A:%lu,B:%lu)", count_a, count_b);
 }
 
@@ -53,24 +50,15 @@ void printer_fail(__attribute__((unused)) unsigned long count,
  * fixed step
  */
 void printer_success(unsigned long count, unsigned long count_a,
-                     __attribute__((unused)) unsigned long count_b) {
+    __attribute__((unused)) unsigned long count_b) {
   printf("fixed:%s", ((count == count_a) ? "A" : "B"));
-}
-
-void init_seed() {
-#if DETERMINISTIC == 0
-  const time_t current_time = time(NULL);
-  srand48(current_time);
-#else
-  srand48(0);
-#endif
 }
 
 /**
  * Do simulation
  */
 void simul_evolution(unsigned long n_a, float p_a, unsigned long n_b, float p_b,
-                     unsigned long maxsteps, char * filename) {
+    unsigned long maxsteps, char * filename) {
   unsigned long i;
   FILE * dump = NULL;
   Population * population = NULL;
@@ -79,7 +67,11 @@ void simul_evolution(unsigned long n_a, float p_a, unsigned long n_b, float p_b,
     fopen_or_exit(dump, filename, "w");
   }
 
-  init_seed();
+  /* initialize seed for random functions,
+   * set to 1 if you want deterministic results */
+  population_initialize_seed(0);
+
+  /* initialize first population with NULL as a first argument */
   population = population_initialize(NULL, n_a, n_b, dump);
   for (i = 1; i <= maxsteps; i++) {
     population_generation(population, i, p_a, p_b);
@@ -115,12 +107,12 @@ int main(int argc, char * argv[]) {
   error = false;
   if (argc == 6 || argc == 7) {
     /* Try to find all integer parameters */
-    if (sscanf(argv[1], "%lu", &n_a) == 1 &&
-        sscanf(argv[3], "%lu", &n_b) == 1 &&
-        sscanf(argv[5], "%lu", &maxsteps) == 1 &&
+    if (sscanf(argv[1], "%lu", &n_a) == 1 && n_a <= ULONG_MAX
+        && sscanf(argv[3], "%lu", &n_b) == 1 && n_b <= ULONG_MAX
+        && sscanf(argv[5], "%lu", &maxsteps) == 1 && maxsteps <= ULONG_MAX
         /* try to find all float parameters */
-        sscanf(argv[2], "%f", &p_a) == 1 && p_a >= 0.0 && p_a <= 1.0 &&
-        sscanf(argv[4], "%f", &p_b) == 1 && p_b >= 0.0 && p_b <= 1.0) {
+        && sscanf(argv[2], "%f", &p_a) == 1 && p_a >= 0.0 && p_a <= 1.0
+        && sscanf(argv[4], "%f", &p_b) == 1 && p_b >= 0.0 && p_b <= 1.0) {
       if (argc == 7) {
         filename = argv[6];
       }
@@ -136,10 +128,9 @@ int main(int argc, char * argv[]) {
 
   if (error) {
     fprintf(stderr,
-            "Usage: %s <n_a> <p_a> <n_b> <p_b> <maxsteps> [<filename>]\n"
+        "Usage: %s <n_a> <p_a> <n_b> <p_b> <maxsteps> [<filename>]\n"
             "Where n_a and n_b have to be natural numbers\n"
-            "and p_a and p_b are in range between 0 and 1\n",
-            argv[0]);
+            "and p_a and p_b are in range between 0 and 1\n", argv[0]);
   }
 
   return EXIT_SUCCESS;

@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
+#include <time.h>
 #include "population.h"
 
 /**
@@ -41,7 +42,6 @@
     assert_with_message((bacteria->gene !=NULL), \
                         "EnpeCompletii gene can not be empty");
 
-
 /**
  * needs to minimize a
  * function-calls
@@ -70,7 +70,6 @@
                         "Population can not be empty"); \
     assert_with_message((population->count > 0), \
                         "Count of individuums in population can not be 0");
-
 
 /**
  * Get random number from 0 to max
@@ -120,9 +119,7 @@ typedef struct {
 typedef struct Population {
   PopulationSpot * space;
   FILE * export;
-  unsigned long count,
-                count_a,
-                count_b;
+  unsigned long count, count_a, count_b;
 } Population;
 
 /**
@@ -162,7 +159,7 @@ EnpeCompletii * enpe_completii_reproduce(EnpeCompletii * bacteria) {
     const double random = drand48();
     if (bacteria->gene->probability >= random) {
       return enpe_completii_create(bacteria->gene->type,
-                                   bacteria->gene->probability);
+          bacteria->gene->probability);
     }
   }
 
@@ -182,6 +179,17 @@ void enpe_completii_kill(EnpeCompletii * bacteria) {
 }
 
 /**
+ *
+ */
+void population_initialize_seed(unsigned int deterministic) {
+  if (deterministic) {
+    return srand48(0);
+  }
+  const time_t current_time = time(NULL);
+  srand48(current_time);
+}
+
+/**
  * Initialize population with given parameters
  *
  * @variable n_a - count of Dolly - A bacteria
@@ -190,7 +198,7 @@ void enpe_completii_kill(EnpeCompletii * bacteria) {
  * @variable n_b - reproduce probability of Dolly - B bacteria
  */
 Population * population_initialize(Population * population, unsigned long n_a,
-                                   unsigned long n_b, FILE * export) {
+    unsigned long n_b, FILE * export) {
 
   if (population == NULL) {
     realloc_or_exit(population, sizeof(*population),
@@ -214,7 +222,7 @@ Population * population_initialize(Population * population, unsigned long n_a,
  * @variable children - bacteria to append
  */
 void population_append(Population * population, PopulationSpot * spot,
-                       EnpeCompletii * children) {
+    EnpeCompletii * children) {
 
   POPULATION_VALIDATE(population);
 
@@ -300,7 +308,7 @@ unsigned long population_random_spot_id(Population * population) {
  * @variable population - affected population
  */
 void population_generation(Population * population, unsigned long step,
-                           float p_a, float p_b) {
+    float p_a, float p_b) {
 
   POPULATION_VALIDATE_LIGHT(population);
 
@@ -325,8 +333,7 @@ void population_generation(Population * population, unsigned long step,
     for (i = 0; i < population->count; i++) {
 
       EnpeCompletii * children = NULL;
-      if ((children = enpe_completii_reproduce(population->space[i].
-                                               individuum))) {
+      if ((children = enpe_completii_reproduce(population->space[i].individuum))) {
 
         unsigned long id = population_random_spot_id(population);
 
@@ -365,26 +372,27 @@ void population_generation_dump(Population * population, unsigned long step) {
  * using a given print-function
  */
 void population_generation_print(Population * population,
-                                 void (*printer)(unsigned long count,
-                                                 unsigned long count_a,
-                                                 unsigned long count_b)) {
+    void (*printer)(unsigned long count, unsigned long count_a,
+        unsigned long count_b)) {
   POPULATION_VALIDATE(population);
-  return (*printer)(population->count,
-                    population->count_a,
-                    population->count_b);
+  return (*printer)(
+            population->count,
+            population->count_a,
+            population->count_b
+         );
 }
 
 /**
  * Check a population properties
  * using a custom function
  */
-unsigned int
-population_generation_check(Population * population,
-                            unsigned int (*checker)(unsigned long count,
-                                                    unsigned long count_a,
-                                                    unsigned long count_b)) {
+unsigned int population_generation_check(Population * population,
+    unsigned int (*checker)(unsigned long count, unsigned long count_a,
+        unsigned long count_b)) {
   POPULATION_VALIDATE(population);
-  return (*checker)(population->count,
-                    population->count_a,
-                    population->count_b);
+  return (*checker)(
+              population->count,
+              population->count_a,
+              population->count_b
+          );
 }

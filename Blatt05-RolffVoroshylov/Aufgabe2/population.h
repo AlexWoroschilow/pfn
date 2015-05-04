@@ -15,11 +15,20 @@
 typedef struct Population Population;
 
 /**
+ * Initialize seed to use random numbers
+ *
+ * @variable deterministic - just a flag to use get
+ * deterministic results or not
+ */
+void population_initialize_seed(unsigned int deterministic);
+
+/**
  * Initialize population with given parameters
  *
  * @variable n_a - count of Dolly - A bacteria
  * @variable n_b - count of Dolly - B bacteria
  * @variable n_b - reproduce probability of Dolly - B bacteria
+ * @variable export - file to dump a simulation results
  */
 Population * population_initialize(Population * population,
                                    unsigned long n_a,
