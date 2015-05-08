@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "bintree.h"
+
+struct bin_tree_node {
+  void *value;
+  BinTreeNode *left,
+              *right;
+};
+
+struct generic_bin_tree {
+  BinTreeNode *t_root; 
+  Cmpfunction *cmp_node_value; /* pointer to compare function, returns
+                                  < 0 if value1 < value2,
+                                    0 if value1==value2 * and
+                                  > 0 if value1 > value2 */
+  Combinefunction combine_node_value; /* pointer to function that handles
+                                         duplicate values */
+  Freefunction *free_node_value; /* pointer to Funktion that frees the contents
+                                    of a node pointed to by value */
+};
