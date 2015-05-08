@@ -178,19 +178,23 @@ void intset_add(IntSet *intset, unsigned long elem)
 bool intset_is_member(const IntSet *intset, unsigned long elem)
 {
   default_check(intset);
-  const unsigned long q    = divide(elem),
-                      r    = modulo(elem),
-                      oldq = divide(intset->last_element);
-  unsigned long start = intset->section_starts[q],
-                end   = intset->section_starts[q + 1] - 1;
-
   if (elem <= intset->maxvalue)
   {
-    /* check if we reached the end of the sections */
-    if (q == oldq)
+    const unsigned long q    = divide(elem),
+                        r    = modulo(elem),
+                        endq = divide(intset->last_element);
+    unsigned long start = intset->section_starts[q],
+                  end;
+    /* check if we reach the end of the sections */
+    if (q == endq)
     {
-      /* if thats the case the end is the current size of the intset */
-      end = intset->current_size - 1;
+      /* if thats the case we sent the end to the current size */
+      end   = intset->current_size - 1;
+    }
+    else
+    {
+      /* if thats not the case the end is the start + size of the section */
+      end   = intset->section_starts[q + 1] - 1;
     }
 
     return binarySearch(intset, r, start, end);
