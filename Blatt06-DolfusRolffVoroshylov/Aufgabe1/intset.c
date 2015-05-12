@@ -178,7 +178,7 @@ void intset_add(IntSet *intset, unsigned long elem)
 bool intset_is_member(const IntSet *intset, unsigned long elem)
 {
   default_check(intset);
-  if (elem <= intset->maxvalue)
+  if (elem <= intset->last_element)
   {
     const unsigned long q    = divide(elem),
                         r    = modulo(elem),
