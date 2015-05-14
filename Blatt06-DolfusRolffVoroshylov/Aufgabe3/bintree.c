@@ -9,10 +9,18 @@
 #include "custom-macro.h"
 
 #define validate_binary_tree(tree)\
-  assert_with_message(((tree) != NULL), "Binary tree can not be empty");
+  assert_with_message(((tree) != NULL), "Binary tree can not be empty");\
+  assert_with_message(((tree->cmp_node_value) != NULL),\
+      "Compare function can not be empty");\
+  assert_with_message(((tree->combine_node_value) != NULL), \
+      "Combine function can not be empty");\
+  assert_with_message(((tree->free_node_value) != NULL),\
+      "Free function can not be empty");\
 
 #define validate_binary_tree_node(node)\
-  assert_with_message(((node) != NULL), "Binary tree node can not be empty");
+  assert_with_message(((node) != NULL), "Binary tree node can not be empty");\
+  assert_with_message(((node->value) != NULL), \
+      "Binary tree node value can not be empty");
 
 typedef struct BinTreeNode BinTreeNode;
 
