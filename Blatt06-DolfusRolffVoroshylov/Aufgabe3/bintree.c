@@ -96,7 +96,9 @@ bool gbt_place_node(GenBinTree *bintree, BinTreeNode * node, void *new_value) {
     }
     return gbt_place_node(bintree, node->right, new_value);
   }
+
   (*bintree->combine_node_value)(node->value, new_value);
+  validate_binary_tree_node(node);
 
   return false;
 }
@@ -148,12 +150,15 @@ void gbt_enumvalues_node(const GenBinTree *bintree, BinTreeNode * node,
 
   if (node->left != NULL) {
     gbt_enumvalues_node(bintree, node->left, apply_node_value, data);
+    validate_binary_tree_node(node->left);
   }
 
   (*apply_node_value)(node->value, data);
+  validate_binary_tree_node(node);
 
   if (node->right != NULL) {
     gbt_enumvalues_node(bintree, node->right, apply_node_value, data);
+    validate_binary_tree_node(node->right);
   }
 }
 
@@ -164,5 +169,6 @@ void gbt_enumvalues(const GenBinTree *bintree, Applyfunction apply_node_value,
     void *data) {
   validate_binary_tree(bintree);
   gbt_enumvalues_node(bintree, bintree->t_root, apply_node_value, data);
+  validate_binary_tree(bintree);
 }
 
