@@ -11,7 +11,7 @@ typedef struct GenBinTree GenBinTree;
  < 0 if first value is smaller than second
  > 0 if first value is larger than second
  0 if the values are considered equal */
-typedef int (*Cmpfunction)(const void *, const void *);
+typedef int (*Cmpfunction)(const void *, const void *) ;
 
 /* Funktion used by <GenBinTree> to handle duplicate entries. First parameter
  <old> will be the value stored in the <GenBinTree>, second <new> will be the
