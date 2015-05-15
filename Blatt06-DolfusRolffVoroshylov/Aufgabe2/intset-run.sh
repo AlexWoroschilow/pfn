@@ -7,7 +7,7 @@ do
   numofelems=100
   while test ${numofelems} -le ${maxvalue}
   do
-    ./intset.x ${maxvalue} ${numofelems}
+    ./intset.x -s ${maxvalue} ${numofelems}
     numofelems=`expr ${numofelems} \* 2`
   done
 done

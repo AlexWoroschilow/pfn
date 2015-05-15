@@ -13,7 +13,7 @@
 #include <assert.h>
 #include <inttypes.h>
 
-#include "assertions.h"
+#include "macros.h"
 
 /*
 Sei s1 der Speicherverbrauch der alten Implementierung mit
@@ -78,29 +78,35 @@ struct IntSet
   uint16_t*      values;
   unsigned long* section_starts;
   unsigned long  current_size,
+                 maximal_size,
                  maxvalue,
                  last_element;
 };
 
-static bool binarySearch(const IntSet* set, unsigned long elem,
-                         unsigned long start, unsigned long end)
+static unsigned long binarySearch(const IntSet* set, unsigned long elem,
+                                  unsigned long start, unsigned long end,
+                                  bool* found)
 {
   default_check(set);
+  unsigned long mid = 0;
+  *found = false;
   if (start < set->current_size && end < set->current_size)
   {
     while (start <= end)
     {
-      const unsigned long mid = start + ((end - start) / 2);
+      mid = start + ((end - start) / 2);
       if (set->values[mid] == elem)
       {
-        return true;
+        *found = true;
+        return mid;
       }
       else if (set->values[mid] < elem)
       {
         start = mid + 1;
         if (start < mid || start >= set->current_size)
         {
-          return false;
+          *found = false;
+          return mid;
         }
       }
       else /* set->values[mid] > elem */
@@ -108,13 +114,15 @@ static bool binarySearch(const IntSet* set, unsigned long elem,
         end = mid - 1;
         if (mid < end || end >= set->current_size)
         {
-          break;
+          *found = false;
+          return mid;
         }
       }
     }
   }
 
-  return false;
+  *found = false;
+  return mid;
 }
 
 IntSet *intset_new(unsigned long maxvalue, unsigned long nofelements)
@@ -127,6 +135,7 @@ IntSet *intset_new(unsigned long maxvalue, unsigned long nofelements)
   calloc_or_exit(set->section_starts, sizeof(*set->section_starts),
                  divide(maxvalue) + 1);
   set->maxvalue = maxvalue;
+  set->maximal_size = nofelements;
   set->current_size =
   set->last_element = 0;
 
@@ -178,35 +187,71 @@ void intset_add(IntSet *intset, unsigned long elem)
 bool intset_is_member(const IntSet *intset, unsigned long elem)
 {
   default_check(intset);
+  bool found = false;
   if (elem <= intset->last_element)
   {
     const unsigned long q    = divide(elem),
                         r    = modulo(elem),
                         endq = divide(intset->last_element);
-    unsigned long start = intset->section_starts[q],
-                  end;
-    /* check if we reach the end of the sections */
-    if (q == endq)
+    unsigned long start = intset->section_starts[q], end;
+    if (q == endq) 
     {
-      /* if thats the case we sent the end to the current size */
-      end   = intset->current_size - 1;
+      end = intset->current_size - 1;
     }
-    else
+    else 
     {
-      /* if thats not the case the end is the start + size of the section */
-      end   = intset->section_starts[q + 1] - 1;
+      end = intset->section_starts[q + 1] - 1;
     }
-
-    return binarySearch(intset, r, start, end);
+    
+    binarySearch(intset, r, start, end, &found);
   }
 
-  return false;
+  return found;
 }
 
 unsigned long intset_number_next_larger(const IntSet *intset,
-                                        unsigned long pos)
+                                        unsigned long value)
 {
-  return 0;
+  default_check(intset);
+  assert(value <= intset->maxvalue);
+  assert(!intset_is_member(intset, value));
+  
+  if (value <= intset->last_element)
+  {
+    const unsigned long q    = divide(value),
+                        r    = modulo(value),
+                        endq = divide(intset->last_element);
+    unsigned long start = intset->section_starts[q], end;
+    
+    if (q == endq) 
+    {
+      end = intset->current_size - 1;
+    }
+    else 
+    {
+      end = intset->section_starts[q + 1];
+    }
+        
+    if (start < intset->current_size && end < intset->current_size)
+    {
+      while(start < end)
+      {
+        const unsigned long mid = (end + start) / 2;
+        if (intset->values[mid] <= r)
+        {
+          start = mid + 1;
+        }
+        else
+        {
+          end = mid;
+        }
+      }
+            
+      return end;
+    }
+  }
+
+  return intset->maximal_size;
 }
 
 void intset_pretty(const IntSet *intset)
