@@ -17,7 +17,7 @@
 #include <assert.h>
 
 #include "tokenizer.h"
-#include "assertions.h"
+#include "macros.h"
 
 typedef struct
 {
@@ -34,7 +34,8 @@ static bool isValidSymbol(int tok)
 static Token* createToken()
 {
   Token* tok = NULL;
-  calloc_or_exit(tok, 1, sizeof(*tok));
+  calloc_or_exit(tok, 1, sizeof(*tok),
+                 "Could not create a Token");
   return tok;
 }
 
@@ -56,7 +57,8 @@ static void resizeToken(Token* tok)
 {
   assert(tok != NULL);
   tok->allocated_size = tok->allocated_size * 1.2 + 256;
-  realloc_or_exit(tok->string, tok->allocated_size);
+  realloc_or_exit(tok->string, tok->allocated_size,
+                  "Could not resize the Token");
 }
 
 static void addSymbol(Token* tok, char symbol)

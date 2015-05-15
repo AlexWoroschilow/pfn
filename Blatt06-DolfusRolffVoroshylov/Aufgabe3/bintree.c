@@ -5,8 +5,9 @@
 #include <stdbool.h>
 #include <ctype.h>
 #include <assert.h>
+
 #include "bintree.h"
-#include "custom-macro.h"
+#include "macros.h"
 
 #define validate_binary_tree(tree)\
   assert_with_message(((tree) != NULL), "Binary tree can not be empty");\

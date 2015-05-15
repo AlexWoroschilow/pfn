@@ -18,14 +18,29 @@
   }
 
 /**
- * Reallocate a memory and display
+ * Allocates memory and display a message
+ * if the allocation failed.
+ */
+#define malloc_or_exit(pointer, size) \
+  assert_with_message((pointer = malloc(size)) != NULL, message);
+
+/**
+ * Allocates memory and initialized int with zeros.
+ * On failure display a message
+ */
+#define calloc_or_exit(pointer, elems, size, message) \
+  assert_with_message((pointer = calloc(elems, size)) != NULL, message);
+  
+/**
+ * Reallocate memory and display
  * a message if not success
  */
 #define realloc_or_exit(pointer, size, message)\
   assert_with_message((pointer = realloc(pointer, size)) != NULL, message);
 
-/* Try to open file and
- assert pointer not equal NULL
+/**
+ * Try to open file and
+ * assert pointer not equal NULL
  */
 #define fopen_or_exit(source, filename, mode) \
     if ((source = fopen(filename, mode)) == NULL) { \

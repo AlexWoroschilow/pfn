@@ -13,7 +13,7 @@
 #include <assert.h>
 #include <inttypes.h>
 
-#include "assertions.h"
+#include "macros.h"
 
 /*
 Sei s1 der Speicherverbrauch der alten Implementierung mit
