@@ -19,9 +19,10 @@
       "Free function can not be empty");\
 
 #define validate_binary_tree_node(node)\
-  assert_with_message(((node) != NULL), "Binary tree node can not be empty");\
+  assert_with_message(((node) != NULL), "Binary tree node can not be empty");
+  /*we dont care about the data in the tree its also possible to store NULL pointers
   assert_with_message(((node->value) != NULL), \
-      "Binary tree node value can not be empty");
+      "Binary tree node value can not be empty");*/
 
 typedef struct BinTreeNode BinTreeNode;
 
@@ -51,7 +52,6 @@ GenBinTree *gbt_new(Cmpfunction cmp_node_value,
     Combinefunction combine_node_value, Freefunction free_node_value) {
 
   GenBinTree * bintree = NULL;
-
   realloc_or_exit(bintree, sizeof(*bintree),
       "Can not allocate memory for binary tree");
 
@@ -63,44 +63,38 @@ GenBinTree *gbt_new(Cmpfunction cmp_node_value,
   return bintree;
 }
 
-BinTreeNode * gbt_create_node(void *new_value) {
-
+static BinTreeNode * gbt_create_node(void *new_value) {
   BinTreeNode * node = NULL;
-
   realloc_or_exit(node, sizeof(*node),
       "Can not allocate memory for binary tree");
 
-  node->left = NULL;
+  node->left  = 
   node->right = NULL;
   node->value = new_value;
 
   return node;
 }
 
-bool gbt_place_node(GenBinTree *bintree, BinTreeNode * node, void *new_value) {
+static bool gbt_place_node(const GenBinTree *bintree, BinTreeNode * node, void *new_value) {
   validate_binary_tree_node(node);
 
-  int compare = (*bintree->cmp_node_value)(node->value, new_value);
+  const int compare = (*bintree->cmp_node_value)(node->value, new_value);
   if (compare < 0) {
-    if (node->left == NULL) {
+    if (!node->left) {
       node->left = gbt_create_node(new_value);
-      validate_binary_tree_node(node->left);
       return true;
     }
     return gbt_place_node(bintree, node->left, new_value);
 
   } else if (compare > 0) {
-    if (node->right == NULL) {
+    if (!node->right) {
       node->right = gbt_create_node(new_value);
-      validate_binary_tree_node(node->right);
       return true;
     }
     return gbt_place_node(bintree, node->right, new_value);
   }
 
   (*bintree->combine_node_value)(node->value, new_value);
-  validate_binary_tree_node(node);
-
   return false;
 }
 
@@ -108,58 +102,62 @@ bool gbt_place_node(GenBinTree *bintree, BinTreeNode * node, void *new_value) {
  true if node corresponding to value was added. Otherwise
  combine_node_value function was called and the gtb_add returns false */
 bool gbt_add(GenBinTree *bintree, void *new_value) {
-  validate_binary_tree(bintree);
-
-  if (bintree->t_root == NULL) {
+  validate_binary_tree(bintree);  
+  if (!bintree->t_root) {
     bintree->t_root = gbt_create_node(new_value);
-    validate_binary_tree_node(bintree->t_root);
     return true;
   }
 
   return gbt_place_node(bintree, bintree->t_root, new_value);
 }
 
-void gbt_delete_node(GenBinTree *bintree, BinTreeNode * node) {
-  validate_binary_tree_node(node);
+static void gbt_delete_node(const GenBinTree *bintree, BinTreeNode * node) {
+  /* use default behaviour of c and do nothing if node is NULL 
+     because gbt_delete_node is a local function we allready checked that
+     bintree is not NULL */
+  if (node)
+  {
+    if (node->left) {
+      gbt_delete_node(bintree, node->left);
+      free(node->left);
+    }
 
-  if (node->left != NULL) {
-    gbt_delete_node(bintree, node->left);
-    free(node->left);
-  }
-
-  bintree->free_node_value(node->value);
-
-  if (node->right != NULL) {
-    gbt_delete_node(bintree, node->right);
-    free(node->right);
+    bintree->free_node_value(node->value);
+    
+    if (node->right) {
+      gbt_delete_node(bintree, node->right);
+      free(node->right);
+    }
   }
 }
 
 /* free the memory of the whole tree, also of the values inside the nodes,
  * uses free_node_value */
 void gbt_delete(GenBinTree *bintree) {
-  validate_binary_tree(bintree);
-  gbt_delete_node(bintree, bintree->t_root);
-  free(bintree->t_root);
-  free(bintree);
+  /* use default behaviour of c and do nothing if bintree is NULL */
+  if (bintree)
+  {
+    gbt_delete_node(bintree, bintree->t_root);
+    free(bintree->t_root);
+    free(bintree);
+  }
 }
 
 /* enumerate all nodes recursive */
-void gbt_enumvalues_node(const GenBinTree *bintree, BinTreeNode * node,
-    Applyfunction apply_node_value, void *data) {
-  validate_binary_tree_node(node);
-
-  if (node->left != NULL) {
-    gbt_enumvalues_node(bintree, node->left, apply_node_value, data);
-    validate_binary_tree_node(node->left);
-  }
-
-  (*apply_node_value)(node->value, data);
-  validate_binary_tree_node(node);
-
-  if (node->right != NULL) {
-    gbt_enumvalues_node(bintree, node->right, apply_node_value, data);
-    validate_binary_tree_node(node->right);
+static void gbt_enumvalues_node(const GenBinTree *bintree, 
+    const BinTreeNode * node, Applyfunction apply_node_value, void *data) {
+  /* its also possible to enumerate over an empty tree but its does nothing. */
+  if (node)
+  {
+    if (node->left) {
+      gbt_enumvalues_node(bintree, node->left, apply_node_value, data);
+    }
+    
+    (*apply_node_value)(node->value, data);
+    
+    if (node->right) {
+      gbt_enumvalues_node(bintree, node->right, apply_node_value, data);
+    }
   }
 }
 
@@ -170,6 +168,5 @@ void gbt_enumvalues(const GenBinTree *bintree, Applyfunction apply_node_value,
     void *data) {
   validate_binary_tree(bintree);
   gbt_enumvalues_node(bintree, bintree->t_root, apply_node_value, data);
-  validate_binary_tree(bintree);
 }
 
