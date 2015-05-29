@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include "unit_edist.h"
 
 unsigned long eval_unit_edist(const unsigned char *u,
                               unsigned long m,
