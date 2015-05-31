@@ -1,0 +1,17 @@
+Material f"ur Aufgabe All-against-all:
+
+bestkvals.h
+bestkvals.c Implementierung der Bestkvals-Klasse
+
+unit-edist.h
+unit-edist.c Berechnung der Einheit-Kosten Edit Distanz.
+
+sw175.fna Testsequence mit 175 protein sequenzen.
+
+Makefile
+requires the following additional files as part of the exercise:
+
+multiseq.h
+multiseq.c Implementierung einer Klasse f"ur multiple sequenzen.
+
+all-against-all.c Funktion wie im "Ubungsblatt beschrieben.
