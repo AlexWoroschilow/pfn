@@ -35,7 +35,7 @@ static int compare(const void *x, const void *y) {
 }
 
 static void eval_seqrange(Multiseq * multiseq, unsigned long i, unsigned long j,
-    EvalMultiseq eval) {
+    EvalMultiseq compare) {
 
   unsigned long p, q;
 
@@ -46,8 +46,9 @@ static void eval_seqrange(Multiseq * multiseq, unsigned long i, unsigned long j,
       const MultiseqItem * item1 = muliseq_item(multiseq, p);
       const MultiseqItem * item2 = muliseq_item(multiseq, q);
 
-      const unsigned long distance = eval((const unsigned char *) item1->start,
-          item1->length, (const unsigned char *) item2->start, item2->length);
+      const unsigned long distance = compare(
+          (const unsigned char *) item1->start, item1->length,
+          (const unsigned char *) item2->start, item2->length);
 
       muliseq_fill_paar(multiseq, distance, p, q);
     }
@@ -60,21 +61,47 @@ void * eval_seqrange_thread(void * object) {
   return object;
 }
 
+unsigned long calculate_start(unsigned long t, unsigned long i,
+    unsigned long rest, unsigned long addition) {
+  unsigned long a;
+  a = rest - (rest / (t - i));
+  a -= a > addition ? addition : a;
+  return a;
+}
+
+unsigned long calculate_addition(unsigned long t, unsigned long i,
+    unsigned long rest) {
+  return (rest / (t - i)) * 0.4;
+}
+
+unsigned long calculate_rest(unsigned long start) {
+  return start > 0 ? start - 1 : 0;
+}
+
+/**
+ * Main function with all logic
+ * deal with threads and other things
+ */
 void process(const char * filename, unsigned long k, unsigned long t) {
 
-  unsigned long n, p, i;
+  unsigned long n, i, start, end, rest, addition;
 
   Multiseq * multiseq = muliseq_new(filename);
   BestKVals * kval = best_k_vals_new(k, compare, sizeof(MultiseqPaar));
   MultiseqTreadSpace * threads = multiseq_threads(t);
 
-  n = muliseq_items(multiseq);
-  p = muliseq_items(multiseq) / t;
+  n = rest = muliseq_items(multiseq);
 
   MultiseqTread * thread = NULL;
   while ((thread = multiseq_thread_next(threads)) != NULL) {
-    thread->i = (p * thread->id); // TODO: upgrade range calculation
-    thread->j = ((thread->id + 1) < threads->count) ? thread->i + p - 1 : n;
+
+    addition = calculate_addition(t, thread->id, rest);
+    start = calculate_start(t, thread->id, rest, addition);
+    end = rest;
+    rest = calculate_rest(start);
+
+    thread->i = start;
+    thread->j = end;
     thread->multiseq = multiseq;
     thread->compare = eval_unit_edist;
     pthread_create_or_die(&thread->identifier, eval_seqrange_thread, thread);
@@ -101,6 +128,9 @@ void process(const char * filename, unsigned long k, unsigned long t) {
   muliseq_delete(multiseq);
 }
 
+/**
+ * Just parse a user-defined parameters
+ */
 int main(int argc, char * argv[]) {
 
   unsigned long k, t;
