@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <stdbool.h>
+#include <pthread.h>
 
 #include "macros.h"
 #include "multiseq.h"
@@ -20,54 +21,91 @@
     filemap = mmap(0, status->st_size, PROT_READ, MAP_SHARED, file, 0);\
     assert_with_message((filemap != MAP_FAILED), "Can not map a file");
 
-struct MultiseqItem {
-  char * start;
-  unsigned long length;
-};
-
-typedef struct MultiseqItemSpace {
+struct MultiseqPaarSpace {
   unsigned long size;
-  unsigned long current;
-  MultiseqItem * items;
-} MultiseqItemSpace;
-
-struct Multiseq {
-  char * filemap;
-  char * filename;
-  struct stat * status;
-  MultiseqItemSpace * space;
+  unsigned long count;
+  MultiseqPaar * elements;
 };
 
-static void muliseq_item_space_resize(MultiseqItemSpace * space,
-    unsigned long append) {
+struct MultiseqItemSpace {
+  unsigned long size;
+  unsigned long count;
+  MultiseqItem * elements;
+};
 
-  unsigned long i, resize;
-  MultiseqItem * cache;
+static void muliseq_resize_paar(MultiseqPaarSpace * space, unsigned long size) {
 
-  resize = space->size + append;
-  realloc_or_exit(space->items, sizeof(*space->items) * resize,
+  unsigned long i;
+  realloc_or_exit(space->elements, sizeof(*space->elements) * size,
       "Can not allocate memory");
 
-  for (i = space->size; i < resize; i++) {
-    cache = &space->items[i];
-    cache->start = NULL;
-    cache->length = 0UL;
+  for (i = space->count; i < size; i++) {
+    space->elements[i].distance = 0;
+    space->elements[i].id1 = 0;
+    space->elements[i].id2 = 0;
   }
 
-  space->size = resize;
+  space->size = size;
 }
 
-static void muliseq_item_space_fill(Multiseq * multiseq, char * stream,
-    unsigned long index) {
+const MultiseqPaar * muliseq_fill_paar(Multiseq * multiseq,
+    unsigned long distance, unsigned long id1, unsigned long id2) {
+
+  MultiseqPaar * element;
+  MultiseqPaarSpace * space = multiseq->paars;
+
+  if (space->size <= space->count) {
+    muliseq_resize_paar(space, space->size + space->size * 0.2);
+  }
+
+  element = &space->elements[space->count++];
+  element->distance = distance;
+  element->id1 = id1;
+  element->id2 = id2;
+
+  return (const MultiseqPaar *) element;
+}
+
+static MultiseqPaarSpace * muliseq_init_paars() {
+
+  MultiseqPaarSpace * space = NULL;
+  realloc_or_exit(space, sizeof(*space), "Can not allocate memory");
+
+  space->size = 10UL;
+  space->count = 0UL;
+  space->elements = NULL;
+
+  realloc_or_exit(space->elements, sizeof(*space->elements) * space->size,
+      "Can not allocate memory");
+  return space;
+}
+
+static void muliseq_resize_items(MultiseqItemSpace * space, unsigned long size) {
+
+  unsigned long i;
+
+  realloc_or_exit(space->elements, sizeof(*space->elements) * size,
+      "Can not allocate memory");
+
+  for (i = space->size; i < size; i++) {
+    space->elements[i].start = NULL;
+    space->elements[i].length = 0UL;
+  }
+
+  space->size = size;
+}
+
+const MultiseqItem * muliseq_fill_item(Multiseq * multiseq, char * stream) {
 
   unsigned long i;
   MultiseqItem * item;
+  MultiseqItemSpace * space = multiseq->items;
 
-  if (multiseq->space->size <= index) {
-    muliseq_item_space_resize(multiseq->space, 10UL);
+  if (space->size <= space->count) {
+    muliseq_resize_items(space, space->size + space->size * 0.2);
   }
 
-  item = &multiseq->space->items[index];
+  item = &space->elements[space->count++];
   for (i = 0; i < strlen(stream); i++) {
     if (stream[i] == '\n') {
       break;
@@ -76,18 +114,20 @@ static void muliseq_item_space_fill(Multiseq * multiseq, char * stream,
 
   item->start = stream;
   item->length = i;
+
+  return (const MultiseqItem *) item;
 }
 
-static MultiseqItemSpace * muliseq_item_space_new() {
+static MultiseqItemSpace * muliseq_init_items() {
 
   MultiseqItemSpace * space = NULL;
   realloc_or_exit(space, sizeof(*space), "Can not allocate memory");
 
-  space->size = 0UL;
-  space->current = 0UL;
-  space->items = NULL;
-
-  muliseq_item_space_resize(space, 10UL);
+  space->size = 10UL;
+  space->count = 0UL;
+  space->elements = NULL;
+  realloc_or_exit(space->elements, sizeof(*space->elements) * space->size,
+      "Can not allocate memory");
 
   return space;
 }
@@ -96,15 +136,16 @@ static bool muliseq_item_start(char * stream) {
   return (stream[0] == '\n' && stream[1] != '>');
 }
 
-Multiseq * muliseq_new(char * filename) {
+Multiseq * muliseq_new(const char * filename) {
 
-  unsigned long file, i = 0, j = 0;
+  unsigned long file, i;
 
   Multiseq * multiseq = NULL;
   realloc_or_exit(multiseq, sizeof(*multiseq), "Can not allocate memory");
 
   multiseq->filename = filename;
-  multiseq->space = muliseq_item_space_new();
+  multiseq->items = muliseq_init_items();
+  multiseq->paars = muliseq_init_paars();
 
   multiseq->status = NULL;
   realloc_or_exit(multiseq->status, sizeof(*multiseq->status),
@@ -115,46 +156,90 @@ Multiseq * muliseq_new(char * filename) {
 
   for (i = 0; (i + 1) < multiseq->status->st_size; i++) {
     if (muliseq_item_start(&multiseq->filemap[i])) {
-      muliseq_item_space_fill(multiseq, &multiseq->filemap[i + 1], j++);
+      const MultiseqItem * item = muliseq_fill_item(multiseq,
+          &multiseq->filemap[i + 1]);
+      i += item->length;
     }
   }
+
+  /* we do know now a real table space, reduce memory usage to this value*/
+  muliseq_resize_items(multiseq->items, multiseq->items->count);
+  /* we do know now a count of sequences, that means that we do know
+   * a all - to - all table size too, resize this table to use
+   * with multiple threads */
+  muliseq_resize_paar(multiseq->paars,
+      multiseq->items->count * multiseq->items->count);
 
   return multiseq;
 }
 
-MultiseqItem * muliseq_item_next(Multiseq * multiseq) {
-  if (multiseq->space->current < multiseq->space->size) {
-    MultiseqItem * item = &multiseq->space->items[multiseq->space->current++];
-    if (item->start != NULL && item->length) {
-      return item;
-    }
-  }
-  return NULL;
+unsigned long muliseq_items(Multiseq * multiseq) {
+  MultiseqItemSpace * space = multiseq->items;
+  return space->count;
 }
 
-void muliseq_item_show(MultiseqItem * item) {
-  int i;
-  printf("%lu\t", item->length);
-  for (i = 0; i < item->length; i++) {
-    printf("%c", item->start[i]);
-  }
-  printf("\n");
+unsigned long muliseq_paars(Multiseq * multiseq) {
+  MultiseqPaarSpace * space = multiseq->paars;
+  return space->count;
 }
 
-void muliseq_destroy(Multiseq * multiseq) {
+const MultiseqItem * muliseq_item(Multiseq * multiseq, unsigned long i) {
+  MultiseqItemSpace * space = multiseq->items;
+  assert_with_message((space->count > i), "Not existed element requested");
+  return (const MultiseqItem *) &space->elements[i];
+}
 
+const MultiseqPaar * muliseq_paar(Multiseq * multiseq, unsigned long i) {
+  MultiseqPaarSpace * space = multiseq->paars;
+  assert_with_message((space->count > i), "Not existed element requested");
+  return (const MultiseqPaar *) &space->elements[i];
+}
+
+void muliseq_delete(Multiseq * multiseq) {
   if (multiseq) {
-    if (multiseq->space) {
-      free(multiseq->space->items);
-      free(multiseq->space);
+    if (multiseq->items) {
+      free(multiseq->items->elements);
+      free(multiseq->items);
+    }
+    if (multiseq->paars) {
+      free(multiseq->paars->elements);
+      free(multiseq->paars);
     }
     if (multiseq->status) {
       munmap(multiseq->filemap, multiseq->status->st_size);
       free(multiseq->status);
     }
-
     free(multiseq);
   }
+}
 
+MultiseqTreadSpace * multiseq_threads(unsigned long t) {
+  MultiseqTreadSpace * space = NULL;
+  realloc_or_exit(space, sizeof(*space) * t, "Can not allocate memory");
+
+  space->count = t;
+  space->current = 0UL;
+  space->treads = NULL;
+  realloc_or_exit(space->treads, sizeof(*space->treads) * space->count,
+      "Can not allocate memory");
+
+  return space;
+}
+
+MultiseqTread * multiseq_thread_next(MultiseqTreadSpace * space) {
+  if (space->current < space->count) {
+    MultiseqTread * element = &space->treads[space->current];
+    element->id = space->current++;
+    return element;
+  }
+  space->current = 0UL;
+  return NULL;
+}
+
+void multiseq_threads_delete(MultiseqTreadSpace * space) {
+  if (space) {
+    free(space->treads);
+    free(space);
+  }
 }
 

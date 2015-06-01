@@ -1,5 +1,6 @@
-#ifndef CUSTOMMACRO
-#define CUSTOMMACRO
+#ifndef CUSTOM_MACROS_H
+#define CUSTOM_MACROS_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
@@ -21,7 +22,7 @@
  * Allocates memory and display a message
  * if the allocation failed.
  */
-#define malloc_or_exit(pointer, size) \
+#define malloc_or_exit(pointer, size, message) \
   assert_with_message((pointer = malloc(size)) != NULL, message);
 
 /**
@@ -30,7 +31,7 @@
  */
 #define calloc_or_exit(pointer, elems, size, message) \
   assert_with_message((pointer = calloc(elems, size)) != NULL, message);
-  
+
 /**
  * Reallocate memory and display
  * a message if not success
@@ -49,5 +50,12 @@
                         filename, mode, __FILE__, (unsigned long) __LINE__); \
         exit(EXIT_FAILURE); \
     }
+
+#define pthread_create_or_die(identifier, thread_function, thread) \
+    assert_with_message(pthread_create(identifier, NULL, thread_function, (void *) thread) == 0,\
+        "Can not create new thread");
+
+#define minumum(x, y) (x) < (y) ? (x) : (y);
+#define maximum(x, y) (x) < (y) ? (x) : (y);
 
 #endif
