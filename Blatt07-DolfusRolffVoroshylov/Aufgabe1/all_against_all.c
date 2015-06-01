@@ -136,13 +136,14 @@ int main(int argc, char * argv[]) {
   unsigned long k, t;
 
   if (argc == 4) {
-    if (sscanf(argv[1], "%lu", &k) == 1) {
-      if (sscanf(argv[2], "%lu", &t) == 1) {
+    if (sscanf(argv[1], "%lu", &k) == 1 && k >= 1) {
+      if (sscanf(argv[2], "%lu", &t) == 1 && t >= 1) {
         process(argv[3], k, t);
         exit(EXIT_SUCCESS);
       }
     }
   }
-  fprintf(stderr, "Usage: %s <k-value> <threads> <filename>", argv[0]);
+  fprintf(stderr, "Usage: %s <k-value greater than 0 >"
+      " <threads greater than 0 > <filename>\n", argv[0]);
   exit(EXIT_FAILURE);
 }
