@@ -80,8 +80,8 @@ static MultiseqPaarSpace * muliseq_init_paars() {
   return space;
 }
 
-static void muliseq_resize_items(MultiseqItemSpace * space, unsigned long size) {
-
+static void muliseq_resize_items(MultiseqItemSpace * space,
+                                 const unsigned long size) {
   unsigned long i;
 
   realloc_or_exit(space->elements, sizeof(*space->elements) * size,
