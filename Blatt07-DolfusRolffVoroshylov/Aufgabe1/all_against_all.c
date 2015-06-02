@@ -34,12 +34,13 @@ static int compare(const void *x, const void *y) {
   return 0;
 }
 
-static void eval_seqrange(Multiseq * multiseq, unsigned long i, unsigned long j,
-    EvalMultiseq compare) {
-
+static void eval_seqrange(Multiseq * multiseq,
+                          const unsigned long i,
+                          const unsigned long j,
+                          EvalMultiseq compare) {
   unsigned long p, q;
-
   const unsigned long n = muliseq_items(multiseq);
+  assert_with_message(multiseq != NULL, "Multiseq can not be NULL");
   for (p = i; p <= j; p++) {
     for (q = p + 1; q < n; q++) {
 
@@ -61,20 +62,22 @@ void * eval_seqrange_thread(void * object) {
   return object;
 }
 
-unsigned long calculate_start(unsigned long t, unsigned long i,
-    unsigned long rest, unsigned long addition) {
+static unsigned long calculate_start(const unsigned long t,
+                                     const unsigned long i,
+                                     const unsigned long rest,
+                                     const unsigned long addition) {
   unsigned long a;
   a = rest - (rest / (t - i));
   a -= a > addition ? addition : a;
   return a;
 }
 
-unsigned long calculate_addition(unsigned long t, unsigned long i,
+static unsigned long calculate_addition(unsigned long t, unsigned long i,
     unsigned long rest) {
   return (rest / (t - i)) * 0.4;
 }
 
-unsigned long calculate_rest(unsigned long start) {
+static unsigned long calculate_rest(unsigned long start) {
   return start > 0 ? start - 1 : 0;
 }
 
@@ -82,17 +85,25 @@ unsigned long calculate_rest(unsigned long start) {
  * Main function with all logic
  * deal with threads and other things
  */
-void process(const char * filename, unsigned long k, unsigned long t) {
+static void process(const char * filename, unsigned long k, unsigned long t) {
+  unsigned long n, i,
+                start,
+                end,
+                rest,
+                addition;
+  Multiseq * multiseq;
+  BestKVals * kval;
+  MultiseqTreadSpace* threads;
+  MultiseqTread* thread;
 
-  unsigned long n, i, start, end, rest, addition;
+  assert_with_message(filename != NULL, "filename can not be NULL");
 
-  Multiseq * multiseq = muliseq_new(filename);
-  BestKVals * kval = best_k_vals_new(k, compare, sizeof(MultiseqPaar));
-  MultiseqTreadSpace * threads = multiseq_threads(t);
+  multiseq = muliseq_new(filename);
+  kval = best_k_vals_new(k, compare, sizeof(MultiseqPaar));
+  threads = multiseq_threads(t);
 
   n = rest = muliseq_items(multiseq);
-
-  MultiseqTread * thread = NULL;
+  thread = NULL;
   while ((thread = multiseq_thread_next(threads)) != NULL) {
 
     addition = calculate_addition(t, thread->id, rest);

@@ -34,7 +34,6 @@ struct MultiseqItemSpace {
 };
 
 static void muliseq_resize_paar(MultiseqPaarSpace * space, unsigned long size) {
-
   unsigned long i;
   realloc_or_exit(space->elements, sizeof(*space->elements) * size,
       "Can not allocate memory");
@@ -49,11 +48,14 @@ static void muliseq_resize_paar(MultiseqPaarSpace * space, unsigned long size) {
 }
 
 const MultiseqPaar * muliseq_fill_paar(Multiseq * multiseq,
-    unsigned long distance, unsigned long id1, unsigned long id2) {
-
+                                       const unsigned long distance,
+                                       const unsigned long id1,
+                                       const unsigned long id2) {
   MultiseqPaar * element;
-  MultiseqPaarSpace * space = multiseq->paars;
+  MultiseqPaarSpace * space;
+  assert_with_message(multiseq != NULL, "Multiseq can not be NULL");
 
+  space = multiseq->paars;
   if (space->size <= space->count) {
     muliseq_resize_paar(space, space->size + space->size * 0.2);
   }
@@ -67,7 +69,6 @@ const MultiseqPaar * muliseq_fill_paar(Multiseq * multiseq,
 }
 
 static MultiseqPaarSpace * muliseq_init_paars() {
-
   MultiseqPaarSpace * space = NULL;
   realloc_or_exit(space, sizeof(*space), "Can not allocate memory");
 
@@ -83,7 +84,7 @@ static MultiseqPaarSpace * muliseq_init_paars() {
 static void muliseq_resize_items(MultiseqItemSpace * space,
                                  const unsigned long size) {
   unsigned long i;
-
+  assert_with_message(space != NULL, "space can not be NULL");
   realloc_or_exit(space->elements, sizeof(*space->elements) * size,
       "Can not allocate memory");
 
@@ -95,12 +96,14 @@ static void muliseq_resize_items(MultiseqItemSpace * space,
   space->size = size;
 }
 
-const MultiseqItem * muliseq_fill_item(Multiseq * multiseq, char * stream) {
-
+const MultiseqItem * muliseq_fill_item(Multiseq * multiseq,
+                                       char * stream) {
   unsigned long i;
   MultiseqItem * item;
-  MultiseqItemSpace * space = multiseq->items;
+  MultiseqItemSpace * space;
+  assert_with_message(multiseq != NULL, "Multiseq can not be NULL");
 
+  space = multiseq->items;
   if (space->size <= space->count) {
     muliseq_resize_items(space, space->size + space->size * 0.2);
   }
@@ -114,12 +117,10 @@ const MultiseqItem * muliseq_fill_item(Multiseq * multiseq, char * stream) {
 
   item->start = stream;
   item->length = i;
-
   return (const MultiseqItem *) item;
 }
 
 static MultiseqItemSpace * muliseq_init_items() {
-
   MultiseqItemSpace * space = NULL;
   realloc_or_exit(space, sizeof(*space), "Can not allocate memory");
 
@@ -137,10 +138,10 @@ static bool muliseq_item_start(char * stream) {
 }
 
 Multiseq * muliseq_new(const char * filename) {
-
   unsigned long file, i;
 
   Multiseq * multiseq = NULL;
+  assert_with_message(filename != NULL, "filename can not be NULL");
   realloc_or_exit(multiseq, sizeof(*multiseq), "Can not allocate memory");
 
   multiseq->filename = filename;
@@ -173,23 +174,29 @@ Multiseq * muliseq_new(const char * filename) {
   return multiseq;
 }
 
-unsigned long muliseq_items(Multiseq * multiseq) {
+unsigned long muliseq_items(const Multiseq * multiseq) {
+  assert_with_message(multiseq != NULL, "Multiseq can not be NULL");
   MultiseqItemSpace * space = multiseq->items;
   return space->count;
 }
 
-unsigned long muliseq_paars(Multiseq * multiseq) {
+unsigned long muliseq_paars(const Multiseq * multiseq) {
+  assert_with_message(multiseq != NULL, "Multiseq can not be NULL");
   MultiseqPaarSpace * space = multiseq->paars;
   return space->count;
 }
 
-const MultiseqItem * muliseq_item(Multiseq * multiseq, unsigned long i) {
+const MultiseqItem * muliseq_item(const Multiseq * multiseq,
+                                  const unsigned long i) {
+  assert_with_message(multiseq != NULL, "Multiseq can not be NULL");
   MultiseqItemSpace * space = multiseq->items;
   assert_with_message((space->count > i), "Not existed element requested");
   return (const MultiseqItem *) &space->elements[i];
 }
 
-const MultiseqPaar * muliseq_paar(Multiseq * multiseq, unsigned long i) {
+const MultiseqPaar * muliseq_paar(const Multiseq * multiseq,
+                                  const unsigned long i) {
+  assert_with_message(multiseq != NULL, "Multiseq can not be NULL");
   MultiseqPaarSpace * space = multiseq->paars;
   assert_with_message((space->count > i), "Not existed element requested");
   return (const MultiseqPaar *) &space->elements[i];
@@ -213,7 +220,7 @@ void muliseq_delete(Multiseq * multiseq) {
   }
 }
 
-MultiseqTreadSpace * multiseq_threads(unsigned long t) {
+MultiseqTreadSpace * multiseq_threads(const unsigned long t) {
   MultiseqTreadSpace * space = NULL;
   realloc_or_exit(space, sizeof(*space) * t, "Can not allocate memory");
 
@@ -227,6 +234,7 @@ MultiseqTreadSpace * multiseq_threads(unsigned long t) {
 }
 
 MultiseqTread * multiseq_thread_next(MultiseqTreadSpace * space) {
+  assert_with_message(space != NULL, "space can not be NULL");
   if (space->current < space->count) {
     MultiseqTread * element = &space->treads[space->current];
     element->id = space->current++;
