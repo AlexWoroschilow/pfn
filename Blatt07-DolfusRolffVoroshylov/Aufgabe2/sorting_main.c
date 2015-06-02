@@ -16,11 +16,11 @@
 #define DECENTILNAME "Dezentil"
 #define VALUENAME "Werte"
 
-#define printSeperator() \
-  printf(" "); \
+#define printSeperator()                                   \
+  printf(" ");                                             \
   for (i = 0; i <= dezentilSize + 1; ++i) { printf("-"); } \
-  printf("+"); \
-  for (i = 0; i <= valuesSize + 1; ++i) { printf("-"); } \
+  printf("+");                                             \
+  for (i = 0; i <= valuesSize + 1; ++i) { printf("-"); }   \
   printf("+\n");
 
   
