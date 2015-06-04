@@ -58,16 +58,24 @@ void HashQuality::compute() {
 
   for (it = computeStore.begin(); it != computeStore.end(); ++it) {
     // hashqual(h,T) = Sum f(h, T, i)^2 berechnen
+    double result;
     std::vector<std::string>::size_type sum = 0;
     ComputeSingleStore::iterator single;
     for (single = it->second.begin(); single != it->second.end(); ++single) {
       sum += std::pow(single->second.size(), 2); //f(h, T, i)^2
     }
-    // und das Ergebniss speichern sowie durch |H(h, T)| teilen
-    qualityStore.push_back(
-      QualityStore::value_type(it->first,
-                               static_cast<double>(sum) /
-                               static_cast<double>(it->second.size())));
+    // durch |H(h, T)| teilen
+    if (!it->second.empty()) {
+      result = static_cast<double>(sum) /
+               static_cast<double>(it->second.size());
+    }
+    else {
+      /* Da kein Ergeniss gefunden wurde kann auch keine
+         Qualität berechnet werden */
+      result = std::numeric_limits<double>::quiet_NaN();
+    }
+    // und Ergebniss speichern
+    qualityStore.push_back(QualityStore::value_type(it->first, result));
   }
   // Sortieren der Objekte nach ihrer Qualität und dann nach dem Namen
   std::sort(qualityStore.begin(), qualityStore.end(), QualityOrder());
@@ -79,8 +87,8 @@ void HashQuality::tokenHandler (const char* token, void* data) {
 
 std::ostream& operator << (std::ostream& stream,
                            const HashQuality& qual) {
-  /** Default Output für einen stream um
-      code duplikation zu vermeiden
+  /* Default Output für einen stream um
+     code duplikation zu vermeiden
   */
   #define defaultOutput     \
        it->first            \
