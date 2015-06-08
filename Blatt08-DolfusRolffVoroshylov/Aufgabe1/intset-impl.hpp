@@ -1,203 +1,140 @@
 #include <stdio.h>
 #include <stdlib.h>
+
+#include <cstring>
+#include <algorithm>
+#include <limits>
+#include <iostream>
+
 #include "intset.hpp"
 
 #define BITS_FOR_SIZE(SIZE)     ((SIZE) * CHAR_BIT)
-#define ELEM2SECTION(LOGVAL,X)  ((X) >> (LOGVAL))
-#define SECTIONMINELEM(S)       ((S) << this->logsectionsize)
+#define ELEM_TO_SECTION(LOGVAL,X)  ((X) >> (LOGVAL))
+#define SECTION_MIN_ELEM(S)       ((S) << logsectionsize)
 
-/* Class constructor, initialize variables with start values
- * C++ fix: use variable "this"*/
+/* Class constructor, initialize variables with start values */
 template<typename Basetype>
-IntSet<Basetype>::IntSet(unsigned long maxelement, unsigned long nofelements) {
+IntSet<Basetype>::IntSet(const unsigned long maximum,
+                         const unsigned long count) :
+  nextfree(0),
+  maxelement(maximum),
+  currentsectionnum(0),
+  nofelements(count),
+  previouselem(std::numeric_limits<unsigned long>::max()),
+  logsectionsize(BITS_FOR_SIZE(sizeof(*elements))) {
 
-  this->nextfree = 0;
-  this->logsectionsize = BITS_FOR_SIZE(sizeof(*this->elements));
-  this->numofsections = ELEM2SECTION(this->logsectionsize,maxelement) + 1;
-  this->maxelement = maxelement;
-  this->currentsectionnum = 0;
-  this->nofelements = nofelements;
-  this->previouselem = ULONG_MAX;
+  numofsections = ELEM_TO_SECTION(logsectionsize, maximum) + 1;
 
-  /* C++ template fix: avoid malloc, use C++ array constructors  */
-  this->elements = new Basetype[this->nofelements];
-  this->sectionstart = new unsigned long[this->numofsections + 1];
+  // C++ template fix: avoid malloc, use C++ array constructors
+  elements = new Basetype[nofelements];
+  sectionstart = new unsigned long[numofsections + 1];
 
-  this->sectionstart[0] = 0;
-  for (unsigned long idx = 1; idx <= this->numofsections; idx++) {
-    this->sectionstart[idx] = this->nofelements;
-  }
+  //set all elements to nofelements
+  std::fill(&sectionstart[0], &sectionstart[numofsections + 1], nofelements);
+  sectionstart[0] = 0;
 }
 
 /* Just a class destructor */
 template<typename Basetype>
 IntSet<Basetype>::~IntSet() {
-  delete[] this->elements;
-  delete[] this->sectionstart;
+  delete[] elements;
+  delete[] sectionstart;
 }
 
-/* Append new value to set, just a copy-paste from c-file
- * C++ fix: use variable "this" */
+/* Append new value to set, just a copy-paste from c-file */
 template<typename Basetype>
 void IntSet<Basetype>::add(unsigned long elem) {
-  assert(
-      this->nextfree < this->nofelements && elem <= this->maxelement
-          && (this->previouselem == ULONG_MAX || this->previouselem < elem));
+  assert(nextfree < nofelements && elem <= maxelement &&
+        (previouselem == std::numeric_limits<unsigned long>::max() ||
+         previouselem < elem));
 
-  while (elem >= SECTIONMINELEM(this->currentsectionnum + 1)) {
-    assert(this->currentsectionnum < this->numofsections);
-    this->sectionstart[this->currentsectionnum + 1] = this->nextfree;
-    this->currentsectionnum++;
+  while (elem >= SECTION_MIN_ELEM(currentsectionnum + 1)) {
+    assert(currentsectionnum < numofsections);
+    sectionstart[currentsectionnum + 1] = nextfree;
+    currentsectionnum++;
   }
 
-  assert(
-      SECTIONMINELEM(this->currentsectionnum) <= elem
-          && elem < SECTIONMINELEM(this->currentsectionnum + 1) &&
-          ELEM2SECTION(this->logsectionsize,elem) == this->currentsectionnum);
+  assert(SECTION_MIN_ELEM(currentsectionnum) <= elem &&
+         elem < SECTION_MIN_ELEM(currentsectionnum + 1) &&
+         ELEM_TO_SECTION(logsectionsize,elem) == currentsectionnum);
 
   /* C++ template fix: Convert element to given type  */
-  this->elements[this->nextfree++] = (Basetype) elem;
-  this->previouselem = elem;
+  elements[nextfree++] = static_cast<Basetype>(elem);
+  previouselem = elem;
 }
 
-/* Check is a number already in set
- * C++ fix: use variable "this", use Basetype */
+/* Check is a number already in set */
 template<typename Basetype>
 bool IntSet<Basetype>::is_member(unsigned long check) const {
-
-  const Basetype *midptr, *leftptr, *rightptr, *elem;
-
-  /* needs to work with unsigned long
-   * to find a position range */
-  if (check <= this->maxelement) {
-
-    const unsigned long sectionnum = ELEM2SECTION(this->logsectionsize, check);
-
-    if (this->sectionstart[sectionnum] < this->sectionstart[sectionnum + 1]) {
-      /* needs to work with Basetype to find
-       * element in array */
-      elem = (const Basetype*) &check;
-      leftptr = (this->elements + this->sectionstart[sectionnum]);
-      rightptr = (this->elements + this->sectionstart[sectionnum + 1] - 1);
-
-      /* just a copy-paste binary search */
-      while (leftptr <= rightptr) {
-        midptr = leftptr + (((unsigned long) (rightptr - leftptr)) >> 1);
-        if (*elem < *midptr) {
-          rightptr = midptr - 1;
-        } else {
-          if (*elem > *midptr) {
-            leftptr = midptr + 1;
-          } else {
-            return true;
-          }
-        }
-      }
+  if (check <= maxelement) {
+    const unsigned long sectionnum = ELEM_TO_SECTION(logsectionsize, check);
+    if (sectionstart[sectionnum] < sectionstart[sectionnum + 1]) {
+      // Search by sections with standard binary search in O(log(n))
+      return std::binary_search(&elements[sectionstart[sectionnum]],
+                                &elements[sectionstart[sectionnum + 1]],
+                                static_cast<Basetype>(check));
     }
   }
   return false;
 }
 
-/* Get a next larger number
- * C++ fix: use variable "this", use Basetype */
+/* Get a next larger number */
 template<typename Basetype>
-unsigned long IntSet<Basetype>::number_next_larger(unsigned long pos) const {
+unsigned long
+IntSet<Basetype>::number_next_larger(const unsigned long pos) const {
+  const unsigned long sectionnum = ELEM_TO_SECTION(logsectionsize, pos);
+  assert(pos <= maxelement);
 
-  unsigned long sectionnum, result;
-  const Basetype *midptr, *leftptr, *rightptr, *found, *leftorig, *elem;
-
-  /* Needs to work with unsigned long here to
-   * find a correct element position range*/
-  sectionnum = ELEM2SECTION(this->logsectionsize, pos);
-  result = this->sectionstart[sectionnum];
-
-  assert(pos <= this->maxelement);
-
-  if (pos > this->previouselem) {
-    return this->nofelements;
+  if (sectionstart[sectionnum] < sectionstart[sectionnum + 1]) {
+    // search with the default implementation for next value larger in O(log(n))
+    Basetype* found = std::upper_bound(&elements[sectionstart[sectionnum]],
+                                       &elements[sectionstart[sectionnum + 1]],
+                                       static_cast<Basetype>(pos));
+    // compute index by found because found could start at elements[0]
+    assert(*found != pos);
+    assert(found != NULL &&
+           found >= &elements[sectionstart[sectionnum]] &&
+           found >= elements);
+    return found - elements;
   }
 
-  if (this->sectionstart[sectionnum] < this->sectionstart[sectionnum + 1]) {
-
-    found = NULL;
-    /* Needs to work with Basetype
-     * to find an element in array*/
-    elem = (const Basetype*) &pos;
-    leftptr = this->elements + this->sectionstart[sectionnum];
-    rightptr = this->elements + this->sectionstart[sectionnum + 1] - 1;
-    leftorig = leftptr;
-
-    assert(leftptr <= rightptr);
-
-    if (*elem < *leftptr) {
-      return result;
-    }
-
-    if (*elem > *rightptr) {
-      return result + 1UL + (unsigned long) (rightptr - leftptr);
-    }
-
-    assert(*elem > *leftptr && *elem < *rightptr);
-
-    while (leftptr <= rightptr) {
-      midptr = leftptr + ((unsigned long) (rightptr - leftptr) >> 1);
-      if (*elem < *midptr) {
-        rightptr = midptr - 1;
-      } else {
-        found = midptr;
-        if (*elem > *midptr) {
-          leftptr = midptr + 1;
-        } else
-          break;
-      }
-    }
-    /* not allowed by exercise! */
-    assert(*found != *elem);
-    assert(found != NULL && found >= leftorig);
-    return result + 1UL + (unsigned long) (found - leftorig);
-  }
-
-  return result;
-
+  return nofelements;
 }
 
-/* Function to print a set, just a copy-paste from c-file,
- * C++ fix: use variable "this" */
+/* Function to print a set, just a copy-paste from c-file */
 template<typename Basetype>
-void IntSet<Basetype>::pretty_print(void) const {
+void IntSet<Basetype>::pretty_print() const {
   unsigned long idx, sectionnum = 0;
+  assert(nextfree > 0);
 
-  assert(this->nextfree > 0);
-  for (idx = 0; idx < this->nextfree; idx++) {
-    while (idx >= this->sectionstart[sectionnum + 1]) {
+  for (idx = 0; idx < nextfree; idx++) {
+    while (idx >= sectionstart[sectionnum + 1]) {
       sectionnum++;
     }
-    printf("%lu%s", SECTIONMINELEM(sectionnum) + this->elements[idx],
-        idx < this->nextfree - 1 ? "&" : "\\\\\n");
+    printf("%lu%s", SECTION_MIN_ELEM(sectionnum) + elements[idx],
+           idx < nextfree - 1 ? "&" : "\\\\\n");
   }
-  for (idx = 0; idx < this->nextfree; idx++) {
-    printf("%hu%s", this->elements[idx],
-        idx < this->nextfree - 1 ? "&" : "\\\\\n");
+  for (idx = 0; idx < nextfree; idx++) {
+    printf("%hu%s", elements[idx], idx < nextfree - 1 ? "&" : "\\\\\n");
   }
   sectionnum = 0;
-  for (idx = 0; idx < this->nextfree; idx++) {
-    while (idx >= this->sectionstart[sectionnum + 1]) {
+  for (idx = 0; idx < nextfree; idx++) {
+    while (idx >= sectionstart[sectionnum + 1]) {
       sectionnum++;
     }
-    printf("%lu%s", sectionnum, idx < this->nextfree - 1 ? "&" : "\\\\\n");
+    printf("%lu%s", sectionnum, idx < nextfree - 1 ? "&" : "\\\\\n");
   }
-  for (idx = 0; idx <= this->numofsections; idx++) {
-    printf("%lu%s", this->sectionstart[idx],
-        idx < this->numofsections ? "&" : "\\\\\n");
+  for (idx = 0; idx <= numofsections; idx++) {
+    printf("%lu%s", sectionstart[idx], idx < numofsections ? "&" : "\\\\\n");
   }
 }
 
 /* Function to get a size, copy-paste from c-file*/
 template<typename Basetype>
-size_t IntSet<Basetype>::size(unsigned long maxelement,
-    unsigned long nofelements) {
+size_t IntSet<Basetype>::size(const unsigned long maxelement,
+                              const unsigned long nofelements) {
   int logsectionsize = BITS_FOR_SIZE(sizeof(Basetype));
-  return sizeof(Basetype) * nofelements
-      + sizeof(unsigned long) * (ELEM2SECTION(logsectionsize,maxelement) + 1);
+  return sizeof(Basetype) * nofelements +
+         sizeof(unsigned long) * (ELEM_TO_SECTION(logsectionsize,
+                                                  maxelement) + 1);
 }
-
