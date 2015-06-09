@@ -37,9 +37,9 @@ class HashQuality
                                       const HashQuality& qual);
                                       
     /** Der Tokenhandler, welcher an den tokenizer übergeben wird
-    um den gegeben input zu tokenizen.
-    Hierbei wird erwartet, dass data ein Pointer auf eine Instanz
-    von HashQuality ist. */
+        um den gegeben input zu tokenizen.
+        Hierbei wird erwartet, dass data ein Pointer auf eine Instanz
+        von HashQuality ist. */
     static void tokenHandler (const char* token, void* data);
                                       
     /** Berechnet die Hash qualität der gegebenen Hash funktionen. */
