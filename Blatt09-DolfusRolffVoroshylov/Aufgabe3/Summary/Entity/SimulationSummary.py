@@ -138,14 +138,14 @@ class SimulationSummary():
 
     def __str__(self):
         return "=== ERGEBNISSE ===\n" \
-               "- Temperatur: %.3f +/- %.3f\n" \
-               "  Wertebereich: %.3f - %.3f\n" \
-               "- Druck: %.3f +/- %.3f\n" \
-               "  Wertebereich: %.3f - %.3f\n" \
-               "- intermolekulare Energie: %.3f +/- %.3f\n" \
-               "  Wertebereich: %.3f - %.3f\n" \
-               "- Molekuele ausser Reichweite: %.3f +/- %.3f\n" \
-               "  Wertebereich: %.3f - %.3f\n" % (
+               " - Temperatur: %.3f +/- %.3f\n" \
+               "   Wertebereich: %.3f - %.3f\n" \
+               " - Druck: %.3f +/- %.3f\n" \
+               "   Wertebereich: %.3f - %.3f\n" \
+               " - intermolekulare Energie: %.3f +/- %.3f\n" \
+               "   Wertebereich: %.3f - %.3f\n" \
+               " - Molekuele ausser Reichweite: %.3f +/- %.3f\n" \
+               "   Wertebereich: %.3f - %.3f\n" % (
                    self.temperature, self.temperature_dev, self.temperature_min, self.temperature_max,
                    self.pressure, self.pressure_dev, self.pressure_min, self.pressure_max,
                    self.energy, self.energy_dev, self.energy_min, self.energy_max,
