@@ -1,0 +1,3235 @@
+
+===================================
+          1. Messung
+===================================
+
+              Uhrzeit: 21:18,20
+           Temperatur: 23.21 °C
+ Fliessgeschwindigkeit: 8.085 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.9925
+
+===================================
+          2. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 22.91 °C
+ Fliessgeschwindigkeit: 8.053 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.9534
+
+===================================
+          3. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.47 °C
+ Fliessgeschwindigkeit: 8.005 cm/s
+ Test Nr. 1  >> Erfolgreich: Ja
+
+ Messwert: 2.5433
+
+===================================
+          4. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.34 °C
+ Fliessgeschwindigkeit: 8.065 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Nein
+ Test Nr. 5  >> Erfolgreich: Ja
+
+ Messwert: 2.8061
+
+===================================
+          5. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 22.71 °C
+ Fliessgeschwindigkeit: 8.029 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.7955
+
+===================================
+          6. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.53 °C
+ Fliessgeschwindigkeit: 7.934 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.5463
+
+===================================
+          7. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 22.79 °C
+ Fliessgeschwindigkeit: 7.95 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Nein
+ Test Nr. 5  >> Erfolgreich: Ja
+
+ Messwert: 2.1628
+
+===================================
+          8. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.45 °C
+ Fliessgeschwindigkeit: 7.979 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.4005
+
+===================================
+          9. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.35 °C
+ Fliessgeschwindigkeit: 7.934 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.6356
+
+===================================
+         10. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 22.66 °C
+ Fliessgeschwindigkeit: 8.037 cm/s
+ Test Nr. 1  >> Erfolgreich: Ja
+
+ Messwert: 2.8051
+
+===================================
+         11. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.64 °C
+ Fliessgeschwindigkeit: 8.02 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.6782
+
+===================================
+         12. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 22.96 °C
+ Fliessgeschwindigkeit: 8.071 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.582
+
+===================================
+         13. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 22.87 °C
+ Fliessgeschwindigkeit: 7.96 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Nein
+ Test Nr. 5  >> Erfolgreich: Ja
+
+ Messwert: 2.993
+
+===================================
+         14. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.3 °C
+ Fliessgeschwindigkeit: 8.038 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Nein
+ Test Nr. 5  >> Erfolgreich: Ja
+
+ Messwert: 2.4549
+
+===================================
+         15. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 22.64 °C
+ Fliessgeschwindigkeit: 7.973 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Nein
+ Test Nr. 5  >> Erfolgreich: Ja
+
+ Messwert: 2.9555
+
+===================================
+         16. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.05 °C
+ Fliessgeschwindigkeit: 8.004 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Nein
+ Test Nr. 5  >> Erfolgreich: Ja
+
+ Messwert: 2.5792
+
+===================================
+         17. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.32 °C
+ Fliessgeschwindigkeit: 7.975 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.9571
+
+===================================
+         18. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 22.77 °C
+ Fliessgeschwindigkeit: 7.965 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Nein
+ Test Nr. 5  >> Erfolgreich: Ja
+
+ Messwert: 2.4958
+
+===================================
+         19. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.11 °C
+ Fliessgeschwindigkeit: 8.096 cm/s
+ Test Nr. 1  >> Erfolgreich: Ja
+
+ Messwert: 2.718
+
+===================================
+         20. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.11 °C
+ Fliessgeschwindigkeit: 7.95 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.7965
+
+===================================
+         21. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 22.79 °C
+ Fliessgeschwindigkeit: 8.023 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.945
+
+===================================
+         22. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 22.87 °C
+ Fliessgeschwindigkeit: 7.973 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.7622
+
+===================================
+         23. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 23.33 °C
+ Fliessgeschwindigkeit: 8.012 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.1502
+
+===================================
+         24. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 22.79 °C
+ Fliessgeschwindigkeit: 7.966 cm/s
+ Test Nr. 1  >> Erfolgreich: Ja
+
+ Messwert: 2.8613
+
+===================================
+         25. Messung
+===================================
+
+              Uhrzeit: 21:18,38
+           Temperatur: 23.33 °C
+ Fliessgeschwindigkeit: 8.032 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.4079
+
+===================================
+         26. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 22.62 °C
+ Fliessgeschwindigkeit: 8.077 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.5673
+
+===================================
+         27. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.22 °C
+ Fliessgeschwindigkeit: 8.029 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.6915
+
+===================================
+         28. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.61 °C
+ Fliessgeschwindigkeit: 7.98 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.628
+
+===================================
+         29. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 22.83 °C
+ Fliessgeschwindigkeit: 8.032 cm/s
+ Test Nr. 1  >> Erfolgreich: Ja
+
+ Messwert: 2.5407
+
+===================================
+         30. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 22.9 °C
+ Fliessgeschwindigkeit: 7.941 cm/s
+ Test Nr. 1  >> Erfolgreich: Ja
+
+ Messwert: 2.166
+
+===================================
+         31. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 22.88 °C
+ Fliessgeschwindigkeit: 7.998 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.9541
+
+===================================
+         32. Messung
+===================================
+
+              Uhrzeit: 21:18,38
+           Temperatur: 22.99 °C
+ Fliessgeschwindigkeit: 7.955 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.8553
+
+===================================
+         33. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 23.11 °C
+ Fliessgeschwindigkeit: 8.076 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.6958
+
+===================================
+         34. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.39 °C
+ Fliessgeschwindigkeit: 8.095 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Nein
+ Test Nr. 5  >> Erfolgreich: Ja
+
+ Messwert: 2.44
+
+===================================
+         35. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 23.1 °C
+ Fliessgeschwindigkeit: 7.987 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.8641
+
+===================================
+         36. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.2 °C
+ Fliessgeschwindigkeit: 8.062 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.2773
+
+===================================
+         37. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 23.62 °C
+ Fliessgeschwindigkeit: 8.008 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.4093
+
+===================================
+         38. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 22.91 °C
+ Fliessgeschwindigkeit: 7.963 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.2812
+
+===================================
+         39. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 23.19 °C
+ Fliessgeschwindigkeit: 7.96 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.3446
+
+===================================
+         40. Messung
+===================================
+
+              Uhrzeit: 21:18,38
+           Temperatur: 23.57 °C
+ Fliessgeschwindigkeit: 8.003 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.9467
+
+===================================
+         41. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 22.74 °C
+ Fliessgeschwindigkeit: 8.017 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.164
+
+===================================
+         42. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 22.79 °C
+ Fliessgeschwindigkeit: 7.988 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Nein
+ Test Nr. 5  >> Erfolgreich: Ja
+
+ Messwert: 2.3748
+
+===================================
+         43. Messung
+===================================
+
+              Uhrzeit: 21:18,38
+           Temperatur: 23.14 °C
+ Fliessgeschwindigkeit: 7.964 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.3527
+
+===================================
+         44. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 23.05 °C
+ Fliessgeschwindigkeit: 7.977 cm/s
+ Test Nr. 1  >> Erfolgreich: Ja
+
+ Messwert: 2.6561
+
+===================================
+         45. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.06 °C
+ Fliessgeschwindigkeit: 8.019 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.862
+
+===================================
+         46. Messung
+===================================
+
+              Uhrzeit: 21:18,38
+           Temperatur: 23.03 °C
+ Fliessgeschwindigkeit: 8.043 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.8272
+
+===================================
+         47. Messung
+===================================
+
+              Uhrzeit: 21:18,38
+           Temperatur: 23.01 °C
+ Fliessgeschwindigkeit: 8.054 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.7554
+
+===================================
+         48. Messung
+===================================
+
+              Uhrzeit: 21:18,38
+           Temperatur: 23.2 °C
+ Fliessgeschwindigkeit: 7.931 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.8051
+
+===================================
+         49. Messung
+===================================
+
+              Uhrzeit: 21:18,38
+           Temperatur: 23.63 °C
+ Fliessgeschwindigkeit: 7.971 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.972
+
+===================================
+         50. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 22.89 °C
+ Fliessgeschwindigkeit: 7.955 cm/s
+ Test Nr. 1  >> Erfolgreich: Ja
+
+ Messwert: 2.3363
+
+===================================
+         51. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.51 °C
+ Fliessgeschwindigkeit: 8.051 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.6351
+
+===================================
+         52. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 23.7 °C
+ Fliessgeschwindigkeit: 7.938 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.8832
+
+===================================
+         53. Messung
+===================================
+
+              Uhrzeit: 21:18,38
+           Temperatur: 22.92 °C
+ Fliessgeschwindigkeit: 8.082 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.8926
+
+===================================
+         54. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.35 °C
+ Fliessgeschwindigkeit: 8.083 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.5886
+
+===================================
+         55. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 22.79 °C
+ Fliessgeschwindigkeit: 8.076 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.1502
+
+===================================
+         56. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.61 °C
+ Fliessgeschwindigkeit: 8.049 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.3262
+
+===================================
+         57. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.48 °C
+ Fliessgeschwindigkeit: 8.096 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Nein
+ Test Nr. 5  >> Erfolgreich: Ja
+
+ Messwert: 2.6521
+
+===================================
+         58. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.61 °C
+ Fliessgeschwindigkeit: 8.046 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.8995
+
+===================================
+         59. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 22.88 °C
+ Fliessgeschwindigkeit: 8.081 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.4061
+
+===================================
+         60. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.27 °C
+ Fliessgeschwindigkeit: 7.96 cm/s
+ Test Nr. 1  >> Erfolgreich: Ja
+
+ Messwert: 2.7913
+
+===================================
+         61. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.7 °C
+ Fliessgeschwindigkeit: 8.065 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.6333
+
+===================================
+         62. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 22.85 °C
+ Fliessgeschwindigkeit: 7.996 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.3414
+
+===================================
+         63. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.63 °C
+ Fliessgeschwindigkeit: 8.077 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.6234
+
+===================================
+         64. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 22.93 °C
+ Fliessgeschwindigkeit: 8.029 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.9853
+
+===================================
+         65. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 22.72 °C
+ Fliessgeschwindigkeit: 7.973 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.4072
+
+===================================
+         66. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.02 °C
+ Fliessgeschwindigkeit: 7.999 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.9183
+
+===================================
+         67. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.68 °C
+ Fliessgeschwindigkeit: 7.944 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.6217
+
+===================================
+         68. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 22.89 °C
+ Fliessgeschwindigkeit: 8.067 cm/s
+ Test Nr. 1  >> Erfolgreich: Ja
+
+ Messwert: 2.3081
+
+===================================
+         69. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.24 °C
+ Fliessgeschwindigkeit: 8.094 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.7927
+
+===================================
+         70. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.65 °C
+ Fliessgeschwindigkeit: 7.964 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.7795
+
+===================================
+         71. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 23.12 °C
+ Fliessgeschwindigkeit: 7.959 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Nein
+ Test Nr. 5  >> Erfolgreich: Ja
+
+ Messwert: 2.854
+
+===================================
+         72. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 23.24 °C
+ Fliessgeschwindigkeit: 8.044 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Nein
+ Test Nr. 5  >> Erfolgreich: Ja
+
+ Messwert: 2.8255
+
+===================================
+         73. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.38 °C
+ Fliessgeschwindigkeit: 8.036 cm/s
+ Test Nr. 1  >> Erfolgreich: Ja
+
+ Messwert: 2.9215
+
+===================================
+         74. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 22.8 °C
+ Fliessgeschwindigkeit: 8.081 cm/s
+ Test Nr. 1  >> Erfolgreich: Ja
+
+ Messwert: 2.9777
+
+===================================
+         75. Messung
+===================================
+
+              Uhrzeit: 21:18,38
+           Temperatur: 23.61 °C
+ Fliessgeschwindigkeit: 8.0 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.2485
+
+===================================
+         76. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 23.25 °C
+ Fliessgeschwindigkeit: 7.932 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Nein
+ Test Nr. 5  >> Erfolgreich: Ja
+
+ Messwert: 2.3974
+
+===================================
+         77. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.29 °C
+ Fliessgeschwindigkeit: 8.067 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.9971
+
+===================================
+         78. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.52 °C
+ Fliessgeschwindigkeit: 8.042 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.6293
+
+===================================
+         79. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.52 °C
+ Fliessgeschwindigkeit: 8.023 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.8211
+
+===================================
+         80. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.28 °C
+ Fliessgeschwindigkeit: 8.096 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.9467
+
+===================================
+         81. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 22.92 °C
+ Fliessgeschwindigkeit: 8.077 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.9668
+
+===================================
+         82. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.13 °C
+ Fliessgeschwindigkeit: 8.098 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.2971
+
+===================================
+         83. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 23.14 °C
+ Fliessgeschwindigkeit: 7.95 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.1684
+
+===================================
+         84. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.26 °C
+ Fliessgeschwindigkeit: 7.981 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.5812
+
+===================================
+         85. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.54 °C
+ Fliessgeschwindigkeit: 8.006 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.5155
+
+===================================
+         86. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 22.64 °C
+ Fliessgeschwindigkeit: 7.932 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.8768
+
+===================================
+         87. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.57 °C
+ Fliessgeschwindigkeit: 7.947 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.9141
+
+===================================
+         88. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 23.0 °C
+ Fliessgeschwindigkeit: 7.936 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.9993
+
+===================================
+         89. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 23.52 °C
+ Fliessgeschwindigkeit: 8.059 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Nein
+ Test Nr. 5  >> Erfolgreich: Ja
+
+ Messwert: 2.7961
+
+===================================
+         90. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 22.64 °C
+ Fliessgeschwindigkeit: 8.083 cm/s
+ Test Nr. 1  >> Erfolgreich: Ja
+
+ Messwert: 2.9738
+
+===================================
+         91. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.2 °C
+ Fliessgeschwindigkeit: 8.045 cm/s
+ Test Nr. 1  >> Erfolgreich: Ja
+
+ Messwert: 2.3755
+
+===================================
+         92. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.39 °C
+ Fliessgeschwindigkeit: 8.086 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.9887
+
+===================================
+         93. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 22.83 °C
+ Fliessgeschwindigkeit: 8.085 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.9636
+
+===================================
+         94. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.34 °C
+ Fliessgeschwindigkeit: 8.069 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.2042
+
+===================================
+         95. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 22.64 °C
+ Fliessgeschwindigkeit: 7.965 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.5141
+
+===================================
+         96. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 22.92 °C
+ Fliessgeschwindigkeit: 8.069 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.9308
+
+===================================
+         97. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 22.83 °C
+ Fliessgeschwindigkeit: 7.982 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Nein
+ Test Nr. 5  >> Erfolgreich: Ja
+
+ Messwert: 2.4298
+
+===================================
+         98. Messung
+===================================
+
+              Uhrzeit: 21:18,38
+           Temperatur: 23.29 °C
+ Fliessgeschwindigkeit: 7.984 cm/s
+ Test Nr. 1  >> Erfolgreich: Ja
+
+ Messwert: 2.7337
+
+===================================
+         99. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.5 °C
+ Fliessgeschwindigkeit: 8.073 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.8124
+
+===================================
+        100. Messung
+===================================
+
+              Uhrzeit: 21:18,38
+           Temperatur: 22.64 °C
+ Fliessgeschwindigkeit: 7.956 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Nein
+ Test Nr. 5  >> Erfolgreich: Ja
+
+ Messwert: 2.4562
+
+===================================
+        101. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 22.79 °C
+ Fliessgeschwindigkeit: 7.965 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.3972
+
+===================================
+        102. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 23.1 °C
+ Fliessgeschwindigkeit: 7.988 cm/s
+ Test Nr. 1  >> Erfolgreich: Ja
+
+ Messwert: 2.9732
+
+===================================
+        103. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 22.95 °C
+ Fliessgeschwindigkeit: 7.982 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.9993
+
+===================================
+        104. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.5 °C
+ Fliessgeschwindigkeit: 7.972 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.5653
+
+===================================
+        105. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 22.82 °C
+ Fliessgeschwindigkeit: 8.058 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.8449
+
+===================================
+        106. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 22.6 °C
+ Fliessgeschwindigkeit: 8.098 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.7806
+
+===================================
+        107. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 23.42 °C
+ Fliessgeschwindigkeit: 8.014 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.8963
+
+===================================
+        108. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 23.22 °C
+ Fliessgeschwindigkeit: 8.087 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Nein
+ Test Nr. 5  >> Erfolgreich: Ja
+
+ Messwert: 2.6604
+
+===================================
+        109. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 22.6 °C
+ Fliessgeschwindigkeit: 7.963 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Nein
+ Test Nr. 5  >> Erfolgreich: Ja
+
+ Messwert: 2.2345
+
+===================================
+        110. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 23.55 °C
+ Fliessgeschwindigkeit: 8.012 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.9723
+
+===================================
+        111. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.68 °C
+ Fliessgeschwindigkeit: 8.042 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.9102
+
+===================================
+        112. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 22.61 °C
+ Fliessgeschwindigkeit: 8.017 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.9342
+
+===================================
+        113. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 22.72 °C
+ Fliessgeschwindigkeit: 8.066 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.9029
+
+===================================
+        114. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.36 °C
+ Fliessgeschwindigkeit: 7.967 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.4279
+
+===================================
+        115. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 22.84 °C
+ Fliessgeschwindigkeit: 8.045 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Nein
+ Test Nr. 5  >> Erfolgreich: Ja
+
+ Messwert: 2.3497
+
+===================================
+        116. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.52 °C
+ Fliessgeschwindigkeit: 8.018 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.6652
+
+===================================
+        117. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.05 °C
+ Fliessgeschwindigkeit: 8.012 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Nein
+ Test Nr. 5  >> Erfolgreich: Ja
+
+ Messwert: 2.9798
+
+===================================
+        118. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 22.85 °C
+ Fliessgeschwindigkeit: 8.099 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.9335
+
+===================================
+        119. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 23.12 °C
+ Fliessgeschwindigkeit: 8.073 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Nein
+ Test Nr. 5  >> Erfolgreich: Ja
+
+ Messwert: 2.721
+
+===================================
+        120. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 22.86 °C
+ Fliessgeschwindigkeit: 7.935 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.4703
+
+===================================
+        121. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 22.69 °C
+ Fliessgeschwindigkeit: 8.04 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Nein
+ Test Nr. 5  >> Erfolgreich: Ja
+
+ Messwert: 2.675
+
+===================================
+        122. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 22.96 °C
+ Fliessgeschwindigkeit: 8.079 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.6848
+
+===================================
+        123. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.07 °C
+ Fliessgeschwindigkeit: 8.022 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.7279
+
+===================================
+        124. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.04 °C
+ Fliessgeschwindigkeit: 8.025 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.9327
+
+===================================
+        125. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.47 °C
+ Fliessgeschwindigkeit: 8.078 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.2092
+
+===================================
+        126. Messung
+===================================
+
+              Uhrzeit: 21:18,38
+           Temperatur: 23.66 °C
+ Fliessgeschwindigkeit: 7.948 cm/s
+ Test Nr. 1  >> Erfolgreich: Ja
+
+ Messwert: 2.9263
+
+===================================
+        127. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.18 °C
+ Fliessgeschwindigkeit: 8.01 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.606
+
+===================================
+        128. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.4 °C
+ Fliessgeschwindigkeit: 7.991 cm/s
+ Test Nr. 1  >> Erfolgreich: Ja
+
+ Messwert: 2.6989
+
+===================================
+        129. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 22.86 °C
+ Fliessgeschwindigkeit: 8.091 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.9604
+
+===================================
+        130. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.11 °C
+ Fliessgeschwindigkeit: 8.053 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.5945
+
+===================================
+        131. Messung
+===================================
+
+              Uhrzeit: 21:18,38
+           Temperatur: 23.58 °C
+ Fliessgeschwindigkeit: 8.036 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.9405
+
+===================================
+        132. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.62 °C
+ Fliessgeschwindigkeit: 7.975 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.6828
+
+===================================
+        133. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.01 °C
+ Fliessgeschwindigkeit: 7.942 cm/s
+ Test Nr. 1  >> Erfolgreich: Ja
+
+ Messwert: 2.4979
+
+===================================
+        134. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.49 °C
+ Fliessgeschwindigkeit: 8.072 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.8128
+
+===================================
+        135. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 22.86 °C
+ Fliessgeschwindigkeit: 7.994 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.6806
+
+===================================
+        136. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.62 °C
+ Fliessgeschwindigkeit: 7.959 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.7958
+
+===================================
+        137. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 22.97 °C
+ Fliessgeschwindigkeit: 8.062 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.6781
+
+===================================
+        138. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 22.65 °C
+ Fliessgeschwindigkeit: 8.034 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.4045
+
+===================================
+        139. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 23.6 °C
+ Fliessgeschwindigkeit: 7.955 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.3991
+
+===================================
+        140. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.09 °C
+ Fliessgeschwindigkeit: 8.014 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.9898
+
+===================================
+        141. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.38 °C
+ Fliessgeschwindigkeit: 7.972 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.2114
+
+===================================
+        142. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.25 °C
+ Fliessgeschwindigkeit: 7.933 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.5758
+
+===================================
+        143. Messung
+===================================
+
+              Uhrzeit: 21:18,38
+           Temperatur: 22.61 °C
+ Fliessgeschwindigkeit: 7.984 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.7057
+
+===================================
+        144. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.66 °C
+ Fliessgeschwindigkeit: 8.054 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.5045
+
+===================================
+        145. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.56 °C
+ Fliessgeschwindigkeit: 8.095 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.9452
+
+===================================
+        146. Messung
+===================================
+
+              Uhrzeit: 21:18,38
+           Temperatur: 22.94 °C
+ Fliessgeschwindigkeit: 8.013 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.1579
+
+===================================
+        147. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 22.61 °C
+ Fliessgeschwindigkeit: 8.066 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.7503
+
+===================================
+        148. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.05 °C
+ Fliessgeschwindigkeit: 8.067 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.5454
+
+===================================
+        149. Messung
+===================================
+
+              Uhrzeit: 21:18,38
+           Temperatur: 23.14 °C
+ Fliessgeschwindigkeit: 7.96 cm/s
+ Test Nr. 1  >> Erfolgreich: Ja
+
+ Messwert: 2.431
+
+===================================
+        150. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.16 °C
+ Fliessgeschwindigkeit: 8.055 cm/s
+ Test Nr. 1  >> Erfolgreich: Ja
+
+ Messwert: 2.9959
+
+===================================
+        151. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.43 °C
+ Fliessgeschwindigkeit: 7.976 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.9984
+
+===================================
+        152. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 22.89 °C
+ Fliessgeschwindigkeit: 8.026 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.6533
+
+===================================
+        153. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 22.89 °C
+ Fliessgeschwindigkeit: 8.067 cm/s
+ Test Nr. 1  >> Erfolgreich: Ja
+
+ Messwert: 2.654
+
+===================================
+        154. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 22.99 °C
+ Fliessgeschwindigkeit: 8.092 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Nein
+ Test Nr. 5  >> Erfolgreich: Ja
+
+ Messwert: 2.9209
+
+===================================
+        155. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.51 °C
+ Fliessgeschwindigkeit: 7.937 cm/s
+ Test Nr. 1  >> Erfolgreich: Ja
+
+ Messwert: 2.7558
+
+===================================
+        156. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 22.84 °C
+ Fliessgeschwindigkeit: 8.024 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.7272
+
+===================================
+        157. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.51 °C
+ Fliessgeschwindigkeit: 8.067 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.2574
+
+===================================
+        158. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.69 °C
+ Fliessgeschwindigkeit: 8.019 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.3314
+
+===================================
+        159. Messung
+===================================
+
+              Uhrzeit: 21:18,38
+           Temperatur: 22.92 °C
+ Fliessgeschwindigkeit: 8.094 cm/s
+ Test Nr. 1  >> Erfolgreich: Ja
+
+ Messwert: 2.5138
+
+===================================
+        160. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.12 °C
+ Fliessgeschwindigkeit: 8.061 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.2571
+
+===================================
+        161. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.09 °C
+ Fliessgeschwindigkeit: 8.006 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.437
+
+===================================
+        162. Messung
+===================================
+
+              Uhrzeit: 21:18,38
+           Temperatur: 23.37 °C
+ Fliessgeschwindigkeit: 8.073 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.4454
+
+===================================
+        163. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 22.81 °C
+ Fliessgeschwindigkeit: 7.934 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.4001
+
+===================================
+        164. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.19 °C
+ Fliessgeschwindigkeit: 7.94 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.4025
+
+===================================
+        165. Messung
+===================================
+
+              Uhrzeit: 21:18,38
+           Temperatur: 23.08 °C
+ Fliessgeschwindigkeit: 8.094 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.6209
+
+===================================
+        166. Messung
+===================================
+
+              Uhrzeit: 21:18,38
+           Temperatur: 23.2 °C
+ Fliessgeschwindigkeit: 7.962 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.6254
+
+===================================
+        167. Messung
+===================================
+
+              Uhrzeit: 21:18,38
+           Temperatur: 23.6 °C
+ Fliessgeschwindigkeit: 8.018 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.8688
+
+===================================
+        168. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.46 °C
+ Fliessgeschwindigkeit: 8.08 cm/s
+ Test Nr. 1  >> Erfolgreich: Ja
+
+ Messwert: 2.4395
+
+===================================
+        169. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 22.76 °C
+ Fliessgeschwindigkeit: 8.01 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.7873
+
+===================================
+        170. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 23.58 °C
+ Fliessgeschwindigkeit: 8.02 cm/s
+ Test Nr. 1  >> Erfolgreich: Ja
+
+ Messwert: 2.5014
+
+===================================
+        171. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.45 °C
+ Fliessgeschwindigkeit: 7.934 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.3891
+
+===================================
+        172. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.53 °C
+ Fliessgeschwindigkeit: 7.942 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.366
+
+===================================
+        173. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.43 °C
+ Fliessgeschwindigkeit: 8.093 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.5912
+
+===================================
+        174. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.06 °C
+ Fliessgeschwindigkeit: 8.076 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.8762
+
+===================================
+        175. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.16 °C
+ Fliessgeschwindigkeit: 7.944 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Nein
+ Test Nr. 5  >> Erfolgreich: Ja
+
+ Messwert: 2.8606
+
+===================================
+        176. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.39 °C
+ Fliessgeschwindigkeit: 8.067 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Nein
+ Test Nr. 5  >> Erfolgreich: Ja
+
+ Messwert: 2.9128
+
+===================================
+        177. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 22.8 °C
+ Fliessgeschwindigkeit: 7.955 cm/s
+ Test Nr. 1  >> Erfolgreich: Ja
+
+ Messwert: 3.0
+
+===================================
+        178. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.14 °C
+ Fliessgeschwindigkeit: 8.081 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.999
+
+===================================
+        179. Messung
+===================================
+
+              Uhrzeit: 21:18,38
+           Temperatur: 22.67 °C
+ Fliessgeschwindigkeit: 7.985 cm/s
+ Test Nr. 1  >> Erfolgreich: Ja
+
+ Messwert: 2.9994
+
+===================================
+        180. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.36 °C
+ Fliessgeschwindigkeit: 8.079 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.1423
+
+===================================
+        181. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.59 °C
+ Fliessgeschwindigkeit: 8.069 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.6571
+
+===================================
+        182. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 22.69 °C
+ Fliessgeschwindigkeit: 7.945 cm/s
+ Test Nr. 1  >> Erfolgreich: Ja
+
+ Messwert: 2.9949
+
+===================================
+        183. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.52 °C
+ Fliessgeschwindigkeit: 8.022 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.87
+
+===================================
+        184. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.1 °C
+ Fliessgeschwindigkeit: 8.065 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.437
+
+===================================
+        185. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.22 °C
+ Fliessgeschwindigkeit: 8.029 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.8648
+
+===================================
+        186. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.54 °C
+ Fliessgeschwindigkeit: 7.965 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.9808
+
+===================================
+        187. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.11 °C
+ Fliessgeschwindigkeit: 7.937 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Nein
+ Test Nr. 5  >> Erfolgreich: Ja
+
+ Messwert: 2.9974
+
+===================================
+        188. Messung
+===================================
+
+              Uhrzeit: 21:18,38
+           Temperatur: 23.05 °C
+ Fliessgeschwindigkeit: 7.944 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.4545
+
+===================================
+        189. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 22.95 °C
+ Fliessgeschwindigkeit: 7.959 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.289
+
+===================================
+        190. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 23.26 °C
+ Fliessgeschwindigkeit: 8.056 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.9998
+
+===================================
+        191. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 22.86 °C
+ Fliessgeschwindigkeit: 8.042 cm/s
+ Test Nr. 1  >> Erfolgreich: Ja
+
+ Messwert: 2.3407
+
+===================================
+        192. Messung
+===================================
+
+              Uhrzeit: 21:18,38
+           Temperatur: 23.41 °C
+ Fliessgeschwindigkeit: 8.056 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.38
+
+===================================
+        193. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.63 °C
+ Fliessgeschwindigkeit: 8.058 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.8099
+
+===================================
+        194. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 22.85 °C
+ Fliessgeschwindigkeit: 8.037 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.8804
+
+===================================
+        195. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 23.39 °C
+ Fliessgeschwindigkeit: 8.086 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.7664
+
+===================================
+        196. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.02 °C
+ Fliessgeschwindigkeit: 8.072 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.3116
+
+===================================
+        197. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 23.64 °C
+ Fliessgeschwindigkeit: 8.036 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Nein
+ Test Nr. 5  >> Erfolgreich: Ja
+
+ Messwert: 2.1516
+
+===================================
+        198. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.68 °C
+ Fliessgeschwindigkeit: 7.99 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.4855
+
+===================================
+        199. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 22.63 °C
+ Fliessgeschwindigkeit: 8.011 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.575
+
+===================================
+        200. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.05 °C
+ Fliessgeschwindigkeit: 7.988 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.4441
+
+===================================
+        201. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.49 °C
+ Fliessgeschwindigkeit: 7.965 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.6362
+
+===================================
+        202. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.58 °C
+ Fliessgeschwindigkeit: 8.064 cm/s
+ Test Nr. 1  >> Erfolgreich: Ja
+
+ Messwert: 2.8499
+
+===================================
+        203. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.55 °C
+ Fliessgeschwindigkeit: 7.976 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 3.0
+
+===================================
+        204. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.29 °C
+ Fliessgeschwindigkeit: 8.035 cm/s
+ Test Nr. 1  >> Erfolgreich: Ja
+
+ Messwert: 2.3766
+
+===================================
+        205. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.49 °C
+ Fliessgeschwindigkeit: 8.082 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.8954
+
+===================================
+        206. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.16 °C
+ Fliessgeschwindigkeit: 8.066 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.836
+
+===================================
+        207. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 22.95 °C
+ Fliessgeschwindigkeit: 8.047 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Nein
+ Test Nr. 5  >> Erfolgreich: Ja
+
+ Messwert: 2.624
+
+===================================
+        208. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 22.71 °C
+ Fliessgeschwindigkeit: 7.957 cm/s
+ Test Nr. 1  >> Erfolgreich: Ja
+
+ Messwert: 2.8674
+
+===================================
+        209. Messung
+===================================
+
+              Uhrzeit: 21:18,38
+           Temperatur: 23.24 °C
+ Fliessgeschwindigkeit: 7.959 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.5313
+
+===================================
+        210. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 22.86 °C
+ Fliessgeschwindigkeit: 8.069 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.4251
+
+===================================
+        211. Messung
+===================================
+
+              Uhrzeit: 21:18,38
+           Temperatur: 22.97 °C
+ Fliessgeschwindigkeit: 8.016 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.4007
+
+===================================
+        212. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.03 °C
+ Fliessgeschwindigkeit: 8.019 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.9996
+
+===================================
+        213. Messung
+===================================
+
+              Uhrzeit: 21:18,38
+           Temperatur: 23.35 °C
+ Fliessgeschwindigkeit: 7.97 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.7772
+
+===================================
+        214. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 23.4 °C
+ Fliessgeschwindigkeit: 7.994 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.9832
+
+===================================
+        215. Messung
+===================================
+
+              Uhrzeit: 21:18,38
+           Temperatur: 22.9 °C
+ Fliessgeschwindigkeit: 8.091 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.5586
+
+===================================
+        216. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.04 °C
+ Fliessgeschwindigkeit: 7.989 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.1687
+
+===================================
+        217. Messung
+===================================
+
+              Uhrzeit: 21:18,38
+           Temperatur: 22.68 °C
+ Fliessgeschwindigkeit: 8.063 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.1772
+
+===================================
+        218. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.25 °C
+ Fliessgeschwindigkeit: 7.931 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.8671
+
+===================================
+        219. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 22.77 °C
+ Fliessgeschwindigkeit: 7.938 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.7726
+
+===================================
+        220. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.14 °C
+ Fliessgeschwindigkeit: 8.07 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.1839
+
+===================================
+        221. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 22.67 °C
+ Fliessgeschwindigkeit: 8.062 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.9357
+
+===================================
+        222. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 22.85 °C
+ Fliessgeschwindigkeit: 7.938 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.3262
+
+===================================
+        223. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 22.76 °C
+ Fliessgeschwindigkeit: 7.978 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.3971
+
+===================================
+        224. Messung
+===================================
+
+              Uhrzeit: 21:18,38
+           Temperatur: 23.46 °C
+ Fliessgeschwindigkeit: 8.054 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.4646
+
+===================================
+        225. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 22.9 °C
+ Fliessgeschwindigkeit: 7.944 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.4492
+
+===================================
+        226. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 22.94 °C
+ Fliessgeschwindigkeit: 8.04 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.7128
+
+===================================
+        227. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.58 °C
+ Fliessgeschwindigkeit: 8.07 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.661
+
+===================================
+        228. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.32 °C
+ Fliessgeschwindigkeit: 7.939 cm/s
+ Test Nr. 1  >> Erfolgreich: Ja
+
+ Messwert: 2.1709
+
+===================================
+        229. Messung
+===================================
+
+              Uhrzeit: 21:18,38
+           Temperatur: 22.78 °C
+ Fliessgeschwindigkeit: 7.966 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.9692
+
+===================================
+        230. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 23.54 °C
+ Fliessgeschwindigkeit: 8.071 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.3637
+
+===================================
+        231. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.46 °C
+ Fliessgeschwindigkeit: 7.968 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.8656
+
+===================================
+        232. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 22.89 °C
+ Fliessgeschwindigkeit: 7.968 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.3572
+
+===================================
+        233. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.69 °C
+ Fliessgeschwindigkeit: 8.011 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.2173
+
+===================================
+        234. Messung
+===================================
+
+              Uhrzeit: 21:18,38
+           Temperatur: 23.31 °C
+ Fliessgeschwindigkeit: 8.04 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.8264
+
+===================================
+        235. Messung
+===================================
+
+              Uhrzeit: 21:18,38
+           Temperatur: 23.55 °C
+ Fliessgeschwindigkeit: 7.955 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Nein
+ Test Nr. 5  >> Erfolgreich: Ja
+
+ Messwert: 2.9804
+
+===================================
+        236. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.18 °C
+ Fliessgeschwindigkeit: 7.946 cm/s
+ Test Nr. 1  >> Erfolgreich: Ja
+
+ Messwert: 2.6173
+
+===================================
+        237. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.66 °C
+ Fliessgeschwindigkeit: 7.944 cm/s
+ Test Nr. 1  >> Erfolgreich: Ja
+
+ Messwert: 2.8501
+
+===================================
+        238. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.16 °C
+ Fliessgeschwindigkeit: 7.986 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.5223
+
+===================================
+        239. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.31 °C
+ Fliessgeschwindigkeit: 8.076 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Nein
+ Test Nr. 5  >> Erfolgreich: Ja
+
+ Messwert: 2.6135
+
+===================================
+        240. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 23.43 °C
+ Fliessgeschwindigkeit: 8.063 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Nein
+ Test Nr. 5  >> Erfolgreich: Ja
+
+ Messwert: 2.2719
+
+===================================
+        241. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 22.74 °C
+ Fliessgeschwindigkeit: 8.009 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Nein
+ Test Nr. 5  >> Erfolgreich: Ja
+
+ Messwert: 2.9255
+
+===================================
+        242. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 22.94 °C
+ Fliessgeschwindigkeit: 7.935 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.4284
+
+===================================
+        243. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.63 °C
+ Fliessgeschwindigkeit: 7.963 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.9024
+
+===================================
+        244. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 22.97 °C
+ Fliessgeschwindigkeit: 7.943 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.9964
+
+===================================
+        245. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 22.77 °C
+ Fliessgeschwindigkeit: 8.013 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Ja
+
+ Messwert: 2.4481
+
+===================================
+        246. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 23.19 °C
+ Fliessgeschwindigkeit: 7.978 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.8398
+
+===================================
+        247. Messung
+===================================
+
+              Uhrzeit: 21:18,36
+           Temperatur: 22.92 °C
+ Fliessgeschwindigkeit: 7.981 cm/s
+ Test Nr. 1  >> Erfolgreich: Ja
+
+ Messwert: 2.8988
+
+===================================
+        248. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 23.09 °C
+ Fliessgeschwindigkeit: 7.945 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Ja
+
+ Messwert: 2.4819
+
+===================================
+        249. Messung
+===================================
+
+              Uhrzeit: 21:18,35
+           Temperatur: 23.63 °C
+ Fliessgeschwindigkeit: 8.011 cm/s
+ Test Nr. 1  >> Erfolgreich: Nein
+ Test Nr. 2  >> Erfolgreich: Nein
+ Test Nr. 3  >> Erfolgreich: Nein
+ Test Nr. 4  >> Erfolgreich: Ja
+
+ Messwert: 2.1608
+
+===================================
+        250. Messung
+===================================
+
+              Uhrzeit: 21:18,37
+           Temperatur: 23.22 °C
+ Fliessgeschwindigkeit: 7.974 cm/s
+ Test Nr. 1  >> Erfolgreich: Ja
+
+ Messwert: 2.2708
