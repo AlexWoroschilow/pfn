@@ -4,7 +4,7 @@ CFLAGS=-g -Wall -Werror -O3 -Wunused-parameter
 # comment the following for the space efficient version
 # SIMPLE=-simple
 
-OBJ=fastq-compress.o fastq-concat/fastq-concat.o fastq-concat/fastq-parse/fastq-parse.o
+OBJ=fastq-compress.o fastq-concat/fastq-concat.o fastq-concat/fastq-parse/fastq-parse.o bwt-compress/bwt-compress.o bwt-compress/gt-alloc.o bwt-compress/sk-sain.o bwt-compress/sktimer.o
 
 
 

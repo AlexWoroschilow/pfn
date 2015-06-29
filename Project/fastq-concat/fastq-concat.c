@@ -101,15 +101,6 @@ void fastq_concat_debug_position(FastqConcatDebug *debug, unsigned long index,
   debug->vector_sequence[index] = length_sequence + previous_sequence;
 }
 
-char* append_char(char* s, char c) {
-  int len = strlen(s);
-  realloc_or_exit(s, sizeof(*s) * (len + 1),
-      "Can not allocation memory for sequence-concatenation debug object");
-  s[len] = c;
-  s[len + 1] = '\0';
-  return s;
-}
-
 /* This is the constructor to deliver a sequence concatenation for
  the given <inputfilename>. Additionally, the name of the program
  which calls the function must be supplied. */
@@ -134,9 +125,6 @@ FastqConcat *fastq_concat_new(const char *progname, const char *inputfilename) {
     const char * header = fastqentry_headerline(fastqentry);
     const char * sequence = fastqentry_sequenceline(fastqentry);
     const char * quality = fastqentry_qualityline(fastqentry);
-
-    /* header string should have a new lines */
-//    append_char((char*) header, '\n');
 
     fastq_concat_string_copy(sq->header, header);
     fastq_concat_string_copy(sq->sequence, sequence);
