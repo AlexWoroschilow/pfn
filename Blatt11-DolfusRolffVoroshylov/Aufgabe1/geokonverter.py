@@ -19,7 +19,7 @@ def main(files, batch, format, output=False):
 
     for num, line in enumerate(converter.process(files, batch), 0):
         buffer.write(("\n#----#\n" if num > 0 else "") + converter.encode(line, format))
-
+    buffer.write("\n")
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(prog='geokonverter.py',
