@@ -53,7 +53,7 @@ void bwt_runlengthdist(bool silent,const Uint *suftab,const GtUchar *sequence,
    The method works by computing the bwt character by character directly
    applying the MTF to the character. That is, the Bwt is not stored. */
 
-GtUchar *mtf_encode(unsigned long *longest,const Uint *suftab,
+GtUchar *mtf_encode(GtUchar * a, unsigned long *longest,const Uint *suftab,
                     const GtUchar *sequence,unsigned long seqlength,
                     unsigned long numofchars);
 
@@ -63,7 +63,8 @@ GtUchar *mtf_encode(unsigned long *longest,const Uint *suftab,
    input (the MTF) is stored in the same memory area <codespace> as the
    output (the Bwt). */
 
-void mtf_decode(GtUchar *codespace,unsigned long longest,
+void mtf_decode(GtUchar * a, GtUchar *codespace,
+                unsigned long longest,
                 unsigned long seqlength,
                 unsigned long numofchars);
 
