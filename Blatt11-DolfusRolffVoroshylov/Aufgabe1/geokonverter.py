@@ -27,6 +27,7 @@ if __name__ == '__main__':
                                            "[Optionen] <Input-Datei(en)>")
 
     parser.add_argument('-o', '--format', default=None, action='store',
+                        required = True, choices = ["o", "t", "x"],
                         help="Die Angabe des Ausgabeformats " \
                              "(o = ORCA, t = TURBOMOLE, x = xyz-Format)" \
                              " ist obligatorisch")
@@ -41,7 +42,7 @@ if __name__ == '__main__':
                              "alle in das Ausgabeformat konvertiert " \
                              "werden")
 
-    parser.add_argument('input', nargs="*", action="store",
+    parser.add_argument('input', nargs="+", action="store",
                         help='list of input files (blank separated) to process ')
 
     args = parser.parse_args()
