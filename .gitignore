@@ -5,7 +5,10 @@
 *.o
 /**/[Dd]ebug/*
 /**/[Rr]elease/*
+/**/__pycache__/*
+/**/.idea/*
 *.config
 *.settings
 *.cproject
 *.project
+*.pyc
