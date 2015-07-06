@@ -19,7 +19,7 @@ def main(files, batch, format, output=False):
 
     for num, line in enumerate(converter.process(files, batch), 0):
         buffer.write(("\n#----#\n" if num > 0 else "") + converter.encode(line, format))
-
+    buffer.write("\n")
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(prog='geokonverter.py',
@@ -27,6 +27,7 @@ if __name__ == '__main__':
                                            "[Optionen] <Input-Datei(en)>")
 
     parser.add_argument('-o', '--format', default=None, action='store',
+                        required = True, choices = ["o", "t", "x"],
                         help="Die Angabe des Ausgabeformats " \
                              "(o = ORCA, t = TURBOMOLE, x = xyz-Format)" \
                              " ist obligatorisch")
@@ -41,7 +42,7 @@ if __name__ == '__main__':
                              "alle in das Ausgabeformat konvertiert " \
                              "werden")
 
-    parser.add_argument('input', nargs="*", action="store",
+    parser.add_argument('input', nargs="+", action="store",
                         help='list of input files (blank separated) to process ')
 
     args = parser.parse_args()
