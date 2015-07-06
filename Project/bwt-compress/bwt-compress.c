@@ -74,8 +74,10 @@ GtUchar *bwt_decode(unsigned long seqlength, const GtUchar *bwt,
   }
 
   for (i = 0; i < seqlength + 1; i++) {
-    const unsigned long a = (const unsigned long) bwt[i];
-    lf[i] = count[a] + rang[i] - 1;
+    if (i != longest) {
+      const unsigned long a = (const unsigned long) bwt[i];
+      lf[i] = count[a] + rang[i] - 1;
+    }
   }
 
   i = seqlength;
@@ -293,25 +295,27 @@ void bwt_mtf_check(bool silent, bool verbose, const Uint *suftab,
   unsigned long alphabet_length;
   unsigned long longest = 0;
 
-  printf("%s\n", sequence);
-
   alphabet_length = numofchars;
 
   alphabet_1 = mtf_alphabet(sequence, seqlength, numofchars, &alphabet_length);
   alphabet_2 = gt_malloc((size_t) numofchars * sizeof(*alphabet_2));
-  mtf_alphabet_print((const GtUchar *) alphabet_1, alphabet_length);
 
-  assert(memcpy(alphabet_2, alphabet_1, numofchars) != NULL);
+  assert(memcpy(
+      (void *)alphabet_2,
+      (const void *)alphabet_1,
+      alphabet_length)  != NULL);
 
-  bwt_mtf = mtf_encode(alphabet_1, &longest, suftab, sequence, seqlength,
-      alphabet_length);
-  bwt_mtf_decoded = mtf_decode(alphabet_2, bwt_mtf, longest, seqlength,
-      numofchars);
+  bwt_mtf = mtf_encode(alphabet_1, &longest, suftab,
+      sequence, seqlength, alphabet_length);
 
-  printf("%s\n", bwt_mtf_decoded);
+  bwt_mtf_decoded = mtf_decode(alphabet_2, bwt_mtf,
+      longest, seqlength, numofchars);
 
-  if (memcmp((const void *) sequence, (const void *) bwt_mtf_decoded, seqlength)
-      != 0) {
+  if (memcmp(
+      (const void *) sequence,
+      (const void *) bwt_mtf_decoded,
+      seqlength) != 0) {
+
     if (verbose && !silent) {
       fprintf(stderr, "Sequences are different\n");
       for (i = 0; i <= seqlength; i++) {
